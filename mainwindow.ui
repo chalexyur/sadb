@@ -44,7 +44,7 @@
      <item row="0" column="0">
       <widget class="QLabel" name="label">
        <property name="text">
-        <string>ID</string>
+        <string>ID:</string>
        </property>
        <property name="buddy">
         <cstring>lineEditId</cstring>
@@ -61,7 +61,7 @@
      <item row="1" column="0">
       <widget class="QLabel" name="label_2">
        <property name="text">
-        <string>Процессор</string>
+        <string>Процессор:</string>
        </property>
        <property name="buddy">
         <cstring>ui-&gt;lineEditCpu</cstring>
@@ -74,7 +74,7 @@
      <item row="2" column="0">
       <widget class="QLabel" name="label_3">
        <property name="text">
-        <string>Оперативная память</string>
+        <string>Оперативная память:</string>
        </property>
       </widget>
      </item>
@@ -84,7 +84,7 @@
      <item row="3" column="0">
       <widget class="QLabel" name="label_4">
        <property name="text">
-        <string>Монитор</string>
+        <string>Монитор:</string>
        </property>
       </widget>
      </item>
@@ -94,7 +94,7 @@
      <item row="4" column="0">
       <widget class="QLabel" name="label_5">
        <property name="text">
-        <string>Принтер</string>
+        <string>Принтер:</string>
        </property>
       </widget>
      </item>
@@ -104,7 +104,7 @@
      <item row="5" column="0">
       <widget class="QLabel" name="label_6">
        <property name="text">
-        <string>Проектор</string>
+        <string>Проектор:</string>
        </property>
       </widget>
      </item>
@@ -114,7 +114,7 @@
      <item row="6" column="0">
       <widget class="QLabel" name="label_7">
        <property name="text">
-        <string>ИБП</string>
+        <string>ИБП:</string>
        </property>
       </widget>
      </item>
@@ -124,7 +124,7 @@
      <item row="7" column="0">
       <widget class="QLabel" name="label_8">
        <property name="text">
-        <string>Видеокарта</string>
+        <string>Видеокарта:</string>
        </property>
       </widget>
      </item>
@@ -201,7 +201,7 @@
   <widget class="QStatusBar" name="statusBar"/>
   <action name="menuNew">
    <property name="text">
-    <string>Новый</string>
+    <string>Новый...</string>
    </property>
   </action>
   <action name="menuExit">
