@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>690</width>
-    <height>338</height>
+    <width>706</width>
+    <height>393</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,6 +16,9 @@
   <property name="windowIcon">
    <iconset resource="recources.qrc">
     <normaloff>:/new/prefix1/main.ico</normaloff>:/new/prefix1/main.ico</iconset>
+  </property>
+  <property name="locale">
+   <locale language="Russian" country="Russia"/>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QTreeView" name="treeView">
@@ -28,13 +31,13 @@
      </rect>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>370</x>
       <y>10</y>
       <width>311</width>
-      <height>271</height>
+      <height>280</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
@@ -42,6 +45,9 @@
       <widget class="QLabel" name="label">
        <property name="text">
         <string>ID</string>
+       </property>
+       <property name="buddy">
+        <cstring>lineEditId</cstring>
        </property>
       </widget>
      </item>
@@ -56,6 +62,9 @@
       <widget class="QLabel" name="label_2">
        <property name="text">
         <string>Процессор</string>
+       </property>
+       <property name="buddy">
+        <cstring>ui-&gt;lineEditCpu</cstring>
        </property>
       </widget>
      </item>
@@ -137,6 +146,9 @@
          <height>24</height>
         </size>
        </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
       </widget>
      </item>
      <item row="8" column="1" colspan="2">
@@ -164,8 +176,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>690</width>
-     <height>21</height>
+     <width>706</width>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">
