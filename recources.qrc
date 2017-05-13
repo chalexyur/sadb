@@ -3,5 +3,6 @@
         <file>main.ico</file>
         <file>table_save.png</file>
         <file>table_delete.png</file>
+        <file>door_out.png</file>
     </qresource>
 </RCC>

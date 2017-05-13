@@ -185,6 +185,8 @@
      <string>ПК</string>
     </property>
     <addaction name="menuNew"/>
+    <addaction name="separator"/>
+    <addaction name="menuExit"/>
    </widget>
    <addaction name="menu"/>
   </widget>
@@ -200,6 +202,15 @@
   <action name="menuNew">
    <property name="text">
     <string>Новый</string>
+   </property>
+  </action>
+  <action name="menuExit">
+   <property name="icon">
+    <iconset resource="recources.qrc">
+     <normaloff>:/new/prefix1/door_out.png</normaloff>:/new/prefix1/door_out.png</iconset>
+   </property>
+   <property name="text">
+    <string>Выход</string>
    </property>
   </action>
  </widget>
