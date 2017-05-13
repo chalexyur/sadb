@@ -14,6 +14,10 @@ class NewDialog : public QDialog
 public:
     explicit NewDialog(QWidget *parent = 0);
     ~NewDialog();
+    void DisableAll();
+
+private slots:
+    void on_comboBox_activated(int index);
 
 private:
     Ui::NewDialog *ui;
