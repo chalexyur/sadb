@@ -200,6 +200,10 @@
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="menuNew">
+   <property name="icon">
+    <iconset resource="recources.qrc">
+     <normaloff>:/new/prefix1/application_form_add.png</normaloff>:/new/prefix1/application_form_add.png</iconset>
+   </property>
    <property name="text">
     <string>Новый...</string>
    </property>

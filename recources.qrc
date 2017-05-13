@@ -4,5 +4,6 @@
         <file>table_save.png</file>
         <file>table_delete.png</file>
         <file>door_out.png</file>
+        <file>application_form_add.png</file>
     </qresource>
 </RCC>
