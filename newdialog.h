@@ -2,6 +2,7 @@
 #define NEWDIALOG_H
 
 #include <QDialog>
+#include <QtXml>
 
 namespace Ui {
 class NewDialog;
