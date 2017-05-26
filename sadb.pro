@@ -28,7 +28,8 @@ SOURCES += main.cpp\
     newdialog.cpp
 
 HEADERS  += mainwindow.h \
-    newdialog.h
+    newdialog.h \
+    class.h
 
 FORMS    += mainwindow.ui \
     newdialog.ui
