@@ -22,6 +22,12 @@ void MainWindow::startup(){
   QVector<programmingComputer> prpc;
   QVector<graphicComputer> grpc;
   QVector<server> srvpc;
+  QVector<baseComputer> vecpc;
+  //officeComputer *newpc=new officeComputer;
+  //vecpc.push_back(newpc);
+  baseComputer* mypc = new officeComputer;
+
+
 }
 
 void MainWindow::on_menuNew_triggered()
@@ -38,4 +44,20 @@ void MainWindow::on_menuNew_triggered()
 void MainWindow::on_menuExit_triggered()
 {
   QCoreApplication::exit();
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+  switch (ui->comboBox->currentIndex()) {
+    case 0:{
+        officeComputer *newpc = new officeComputer;
+        newpc->cpu=ui->lineEditCpu->text().toInt();
+       newpc->ram= ui->lineEditRam->text().toInt();
+       newpc->display= ui->lineEditDisplay->text();
+       newpc->printer= ui->lineEditPrinter->text();
+      break;
+      }
+    default:
+      break;
+    }
 }
