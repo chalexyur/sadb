@@ -36,7 +36,10 @@ HEADERS  += mainwindow.h \
     class.h \
     agregator.h \
     data.h \
-    factory.h
+    factory.h \
+    abstractfactory.h \
+    interfaceclass.h \
+    inheritedclass.h
 
 FORMS    += mainwindow.ui \
     newdialog.ui

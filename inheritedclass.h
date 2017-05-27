@@ -1,0 +1,4 @@
+#ifndef INHERITEDCLASS_H
+#define INHERITEDCLASS_H
+
+#endif // INHERITEDCLASS_H

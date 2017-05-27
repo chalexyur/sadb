@@ -1,15 +1,15 @@
 #ifndef AGREGATOR_H
 #define AGREGATOR_H
-#include "class.h"
+#include "interfaceclass.h"
 #include <vector>
 
 class Agregator
 {
 
 public:
-    int param;
+    QString param;
     std::vector<baseComputer*> content;
-    Agregator(int param);
+    Agregator(QString param);
 
     void print();
 };
