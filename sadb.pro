@@ -25,13 +25,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    newdialog.cpp
+    newdialog.cpp \
+    data.cpp \
+    factory.cpp \
+    class.cpp \
+    agregator.cpp \
+    interfaceclass.cpp
 
 HEADERS  += mainwindow.h \
     newdialog.h \
     class.h \
     interface.h \
-    agregator.h
+    agregator.h \
+    data.h \
+    factory.h
 
 FORMS    += mainwindow.ui \
     newdialog.ui

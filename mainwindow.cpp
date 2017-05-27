@@ -25,8 +25,13 @@ void MainWindow::startup(){
     QVector<baseComputer> vecpc;
     //officeComputer *newpc=new officeComputer;
     //vecpc.push_back(newpc);
-    baseComputer* mypc = new officeComputer;
+    //baseComputer* mypc = new officeComputer;
 
+    setData();
+}
+
+
+void MainWindow::setData(){
 
 }
 
@@ -48,13 +53,25 @@ void MainWindow::on_menuExit_triggered()
 
 void MainWindow::on_pushButton_clicked()
 {
+    int id=0, cpu=0, ram=0;
+    QString display, printer, projector, ups, gpu;
+
+    id=ui->lineEditId->text().toInt();
+    cpu=ui->lineEditCpu->text().toInt();
+    ram=ui->lineEditRam->text().toInt();
+    display=ui->lineEditDisplay->text();
+    printer=ui->lineEditPrinter->text();
+    projector=ui->lineEditProjector->text();
+    ups=ui->lineEditUps->text();
+    gpu=ui->lineEditGpu->text();
+
+
+
     switch (ui->comboBox->currentIndex()) {
     case 0:{
-        officeComputer *newpc = new officeComputer;
-        newpc->cpu=ui->lineEditCpu->text().toInt();
-        newpc->ram= ui->lineEditRam->text().toInt();
-        newpc->display= ui->lineEditDisplay->text();
-        newpc->printer= ui->lineEditPrinter->text();
+        //baseComputer *ptr = new officeComputer(id,cpu,ram,display,printer);
+        InterfaceClass *ptr = new InheritedClass("first->text()", "second->text()");
+        factory.createObject(ptr, data.agregators.at(1));
         break;
     }
     default:

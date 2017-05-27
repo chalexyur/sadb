@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <QtWidgets>
 #include "newdialog.h"
+#include "data.h"
+#include "factory.h"
 
 namespace Ui {
 class MainWindow;
@@ -12,6 +14,9 @@ class MainWindow;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
+    Data data;
+    Factory factory;
+    void setData();
 
 public:
     explicit MainWindow(QWidget *parent = 0);

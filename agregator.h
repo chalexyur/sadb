@@ -3,7 +3,6 @@
 #include "class.h"
 #include <vector>
 
-
 class Agregator
 {
 
