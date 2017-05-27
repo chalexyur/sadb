@@ -171,6 +171,9 @@
        <property name="inputMask">
         <string>9</string>
        </property>
+       <property name="text">
+        <string>2</string>
+       </property>
        <property name="readOnly">
         <bool>true</bool>
        </property>
@@ -200,6 +203,9 @@
        <property name="inputMask">
         <string>99999</string>
        </property>
+       <property name="text">
+        <string>1400</string>
+       </property>
       </widget>
      </item>
      <item row="3" column="0" colspan="2">
@@ -220,6 +226,9 @@
        <property name="inputMask">
         <string>99999</string>
        </property>
+       <property name="text">
+        <string>2048</string>
+       </property>
       </widget>
      </item>
      <item row="4" column="0">
@@ -237,6 +246,9 @@
        <property name="enabled">
         <bool>true</bool>
        </property>
+       <property name="text">
+        <string>aic</string>
+       </property>
       </widget>
      </item>
      <item row="5" column="0">
@@ -253,6 +265,9 @@
       <widget class="QLineEdit" name="lineEditPrinter">
        <property name="enabled">
         <bool>true</bool>
+       </property>
+       <property name="text">
+        <string>cannn</string>
        </property>
       </widget>
      </item>

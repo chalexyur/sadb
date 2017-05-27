@@ -2,6 +2,8 @@
 #include "ui_mainwindow.h"
 #include "newdialog.h"
 #include "class.h"
+#include "QTableWidget"
+#include "QString"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -71,7 +73,7 @@ void MainWindow::on_pushButton_clicked()
     case 0:{
         baseComputer *ptr = new officeComputer(id,cpu,ram,display,printer);
         ag_count++;
-        data.agregators.push_back(Agregator(ag_count));
+        data.agregators.push_back(Agregator(0));
         factory.createObject(ptr, data.agregators.back());
         data.print();
         break;
@@ -83,12 +85,15 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_pushButton_2_clicked()
 {
-    qDebug()<<data.agregators[0].content[0]->cpu;
-    /*QTableWidgetItem *new_item = new QTableWidgetItem();
-    for(int x = 0; x<data.agregators.size(); x++){
-        for(int y=0; y<7; y++ ){
-            new_item->setText(x, y, data.agregators[x].content.cpu;
-        }
+    qDebug()<<data.agregators.size();
 
-    }*/
+    int size = data.agregators.size();
+    ui->table->setRowCount(size);
+    for(int x = 0; x<size; x++){
+        QTableWidgetItem *new_item = new QTableWidgetItem();
+        QString s = QString::number(data.agregators[x].content[0]->cpu);
+        new_item->setText(s);
+        ui->table->setItem(x,1, new_item);
+
+    }
 }
