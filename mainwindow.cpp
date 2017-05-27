@@ -70,7 +70,8 @@ void MainWindow::on_pushButton_clicked()
     switch (ui->comboBox->currentIndex()) {
     case 0:{
         baseComputer *ptr = new officeComputer(id,cpu,ram,display,printer);
-        factory.createObject(ptr, data.agregators.at(1));
+        factory.createObject(ptr, data.agregators.at(0));
+        data.print();
         break;
     }
     default:

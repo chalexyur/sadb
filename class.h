@@ -3,23 +3,29 @@
 
 #include <QString>
 
-class baseComputer{
+class baseComputer
+{
+
 public:
-    int id, cpu, ram;
+    int id;
+    int cpu;
+    int ram;
+    baseComputer(int id, int cpu, int ram);
+    virtual void print();
 };
 
 class officeComputer:public baseComputer{
-    QString ownParam;
-public:
-    officeComputer(int id,int cpu,int ram,QString display,QString printer){
+public:    
+    QString display;
+    QString printer;
+    officeComputer(int id,int cpu,int ram,QString display,QString printer);/*{
         this->id=id;
         this->cpu=cpu;
         this->ram=ram;
         this->display=display;
         this->printer=printer;
-    }
-    QString display;
-    QString printer;
+    }*/
+    void print();
 };
 
 class lectureComputer:public baseComputer{

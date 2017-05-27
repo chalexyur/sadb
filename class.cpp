@@ -1,12 +1,24 @@
 #include "class.h"
 #include <QDebug>
-/*InheritedClass::InheritedClass(QString param, QString ownParam)
-    :InterfaceClass(param){
-    this->ownParam = ownParam;
+
+baseComputer::baseComputer(int id, int cpu, int ram){
+    this->id =id;
+    this->cpu=cpu;
+    this->ram =ram;
 }
 
-void InheritedClass::print(){
-    qDebug() << "InheritedClass";
-    qDebug() << "ownParam " << ownParam;
-    InterfaceClass::print();
-}*/
+void baseComputer::print(){
+    qDebug() << id<<cpu<<ram;
+}
+
+officeComputer::officeComputer(int id,int cpu,int ram,QString display,QString printer)
+    :baseComputer(id, cpu, ram){
+    this->id =id;
+    this->cpu=cpu;
+    this->ram =ram;
+}
+
+void officeComputer::print(){
+    qDebug() << id<<cpu<<ram<<display<<printer;
+    baseComputer::print();
+}

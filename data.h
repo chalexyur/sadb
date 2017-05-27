@@ -8,7 +8,7 @@ class Data
 public:
     Data();
     std::vector<Agregator> agregators;
-    //void print();
+    void print();
 };
 
 #endif // DATA_H
