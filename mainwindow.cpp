@@ -53,7 +53,7 @@ void MainWindow::on_menuExit_triggered()
 
 void MainWindow::on_pushButton_clicked()
 {
-    int id=0, cpu=0, ram=0;
+    int id, cpu, ram;
     QString display, printer, projector, ups, gpu;
 
     id=ui->lineEditId->text().toInt();
@@ -69,8 +69,7 @@ void MainWindow::on_pushButton_clicked()
 
     switch (ui->comboBox->currentIndex()) {
     case 0:{
-        //baseComputer *ptr = new officeComputer(id,cpu,ram,display,printer);
-        InterfaceClass *ptr = new InheritedClass("first->text()", "second->text()");
+        baseComputer *ptr = new officeComputer(id,cpu,ram,display,printer);
         factory.createObject(ptr, data.agregators.at(1));
         break;
     }

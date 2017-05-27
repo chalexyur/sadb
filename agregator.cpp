@@ -9,10 +9,10 @@ Agregator::Agregator(QString param)
 
 void Agregator::print()
 {
-    qDebug() << "Agregator : ";
+    /*qDebug() << "Agregator : ";
     qDebug() << "param is " << this->param;
     for (int i = 0; i < this->content.size(); ++i)
     {
         this->content.at(i)->print();
-    }
+    }*/
 }

@@ -8,7 +8,7 @@ class Agregator
 
 public:
     QString param;
-    std::vector<InterfaceClass*> content;
+    std::vector<baseComputer*> content;
     Agregator(QString param);
 
     void print();

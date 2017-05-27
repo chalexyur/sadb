@@ -7,15 +7,15 @@
 class AbstractFactory
 {
 public:
-    virtual void createObject(InterfaceClass* classPtr, Agregator &ag) = 0;
+    virtual void createObject(baseComputer* classPtr, Agregator &ag) = 0;
 };
 
 class Factory : public AbstractFactory
 {
 public:
     Factory();
-    void createObject(InterfaceClass* classPtr, Agregator &ag);
-    void createObject(InheritedClass* classPtr, Agregator &ag);
+    void createObject(baseComputer* classPtr, Agregator &ag);
+    void createObject(officeComputer* classPtr, Agregator &ag);
 };
 
 #endif // FACTORY_H

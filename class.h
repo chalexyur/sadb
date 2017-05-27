@@ -2,21 +2,6 @@
 #define CLASS_H
 
 #include <QString>
-class InterfaceClass
-{
-    QString interfaceParam;
-public:
-    InterfaceClass(QString param);
-    virtual void print();
-
-};
-
-class InheritedClass : public  InterfaceClass{
-    QString ownParam;
-public:
-    InheritedClass(QString param, QString ownParam);
-    void print();
-};
 
 class baseComputer{
 public:
@@ -24,6 +9,7 @@ public:
 };
 
 class officeComputer:public baseComputer{
+    QString ownParam;
 public:
     officeComputer(int id,int cpu,int ram,QString display,QString printer){
         this->id=id;

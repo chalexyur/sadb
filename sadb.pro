@@ -29,13 +29,11 @@ SOURCES += main.cpp\
     data.cpp \
     factory.cpp \
     class.cpp \
-    agregator.cpp \
-    interfaceclass.cpp
+    agregator.cpp
 
 HEADERS  += mainwindow.h \
     newdialog.h \
     class.h \
-    interface.h \
     agregator.h \
     data.h \
     factory.h
