@@ -6,28 +6,28 @@
 #include "newdialog.h"
 
 namespace Ui {
-  class MainWindow;
+class MainWindow;
 }
 
 class MainWindow : public QMainWindow
 {
-  Q_OBJECT
+    Q_OBJECT
 
 public:
-  explicit MainWindow(QWidget *parent = 0);
-  ~MainWindow();
-  void startup();
+    explicit MainWindow(QWidget *parent = 0);
+    ~MainWindow();
+    void startup();
 
 private slots:
-  void on_menuNew_triggered();
+    void on_menuNew_triggered();
 
-  void on_menuExit_triggered();
+    void on_menuExit_triggered();
 
-  void on_pushButton_clicked();
+    void on_pushButton_clicked();
 
 private:
-  Ui::MainWindow *ui;
-  NewDialog *objNewDialog;
+    Ui::MainWindow *ui;
+    NewDialog *objNewDialog;
 };
 
 #endif // MAINWINDOW_H
