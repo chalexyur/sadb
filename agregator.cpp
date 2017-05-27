@@ -1,7 +1,7 @@
 #include "agregator.h"
 #include <QDebug>
 
-Agregator::Agregator(QString param)
+Agregator::Agregator(int param)
 {
     this->param = param;
 
@@ -9,9 +9,8 @@ Agregator::Agregator(QString param)
 
 void Agregator::print()
 {
-    qDebug() << "Agregator : ";
-    qDebug() << "param is " << this->param;
-    for (int i = 0; i < this->content.size(); ++i)
+    qDebug() << "Agregator param is " << this->param;
+    for (unsigned i = 0; i < this->content.size(); ++i)
     {
         this->content.at(i)->print();
     }

@@ -18,13 +18,7 @@ class officeComputer:public baseComputer{
 public:    
     QString display;
     QString printer;
-    officeComputer(int id,int cpu,int ram,QString display,QString printer);/*{
-        this->id=id;
-        this->cpu=cpu;
-        this->ram=ram;
-        this->display=display;
-        this->printer=printer;
-    }*/
+    officeComputer(int id,int cpu,int ram,QString display,QString printer);
     void print();
 };
 

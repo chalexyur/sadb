@@ -24,7 +24,7 @@
    <widget class="QTreeView" name="treeView">
     <property name="geometry">
      <rect>
-      <x>690</x>
+      <x>980</x>
       <y>0</y>
       <width>121</width>
       <height>241</height>
@@ -36,32 +36,54 @@
      <rect>
       <x>10</x>
       <y>0</y>
-      <width>561</width>
-      <height>211</height>
+      <width>801</width>
+      <height>331</height>
      </rect>
     </property>
-    <property name="rowCount">
-     <number>5</number>
+    <property name="sortingEnabled">
+     <bool>false</bool>
     </property>
-    <property name="columnCount">
-     <number>5</number>
-    </property>
-    <row/>
-    <row/>
-    <row/>
-    <row/>
-    <row/>
-    <column/>
-    <column/>
-    <column/>
-    <column/>
-    <column/>
+    <column>
+     <property name="text">
+      <string>id</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>cpu</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>ram</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>display</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>printer</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>ups</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>gpu</string>
+     </property>
+    </column>
    </widget>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>530</y>
+      <x>880</x>
+      <y>590</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -73,8 +95,8 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>280</y>
+      <x>850</x>
+      <y>340</y>
       <width>257</width>
       <height>230</height>
      </rect>
@@ -146,8 +168,14 @@
        <property name="enabled">
         <bool>true</bool>
        </property>
+       <property name="inputMask">
+        <string>9</string>
+       </property>
        <property name="readOnly">
         <bool>true</bool>
+       </property>
+       <property name="clearButtonEnabled">
+        <bool>false</bool>
        </property>
       </widget>
      </item>
@@ -169,6 +197,9 @@
        <property name="enabled">
         <bool>true</bool>
        </property>
+       <property name="inputMask">
+        <string>99999</string>
+       </property>
       </widget>
      </item>
      <item row="3" column="0" colspan="2">
@@ -185,6 +216,9 @@
       <widget class="QLineEdit" name="lineEditRam">
        <property name="enabled">
         <bool>true</bool>
+       </property>
+       <property name="inputMask">
+        <string>99999</string>
        </property>
       </widget>
      </item>
@@ -278,8 +312,8 @@
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>230</y>
+      <x>70</x>
+      <y>510</y>
       <width>75</width>
       <height>23</height>
      </rect>

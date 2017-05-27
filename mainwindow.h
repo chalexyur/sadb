@@ -22,6 +22,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     void startup();
+    int ag_count=0;
 
 private slots:
     void on_menuNew_triggered();

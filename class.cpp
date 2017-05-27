@@ -8,7 +8,7 @@ baseComputer::baseComputer(int id, int cpu, int ram){
 }
 
 void baseComputer::print(){
-    qDebug() << id<<cpu<<ram;
+    qDebug() <<"bspc:"<< id<<cpu<<ram;
 }
 
 officeComputer::officeComputer(int id,int cpu,int ram,QString display,QString printer)
@@ -16,9 +16,11 @@ officeComputer::officeComputer(int id,int cpu,int ram,QString display,QString pr
     this->id =id;
     this->cpu=cpu;
     this->ram =ram;
+    this->display=display;
+    this->printer=printer;
 }
 
-void officeComputer::print(){
-    qDebug() << id<<cpu<<ram<<display<<printer;
+void officeComputer::print(){    
+    qDebug()<< "ofpc:" << id<<cpu<<ram<<display<<printer;
     baseComputer::print();
 }

@@ -70,7 +70,8 @@ void MainWindow::on_pushButton_clicked()
     switch (ui->comboBox->currentIndex()) {
     case 0:{
         baseComputer *ptr = new officeComputer(id,cpu,ram,display,printer);
-        data.agregators.push_back(Agregator("agx"));
+        ag_count++;
+        data.agregators.push_back(Agregator(ag_count));
         factory.createObject(ptr, data.agregators.back());
         data.print();
         break;
@@ -82,5 +83,12 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_pushButton_2_clicked()
 {
+    qDebug()<<data.agregators[0].content[0]->cpu;
+    /*QTableWidgetItem *new_item = new QTableWidgetItem();
+    for(int x = 0; x<data.agregators.size(); x++){
+        for(int y=0; y<7; y++ ){
+            new_item->setText(x, y, data.agregators[x].content.cpu;
+        }
 
+    }*/
 }
