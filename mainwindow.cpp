@@ -73,7 +73,7 @@ void MainWindow::on_pushButton_clicked()
     case 0:{
         baseComputer *ptr = new officeComputer(id,cpu,ram,display,printer);
         ag_count++;
-        data.agregators.push_back(Agregator(0));
+        data.agregators.push_back(Agregator(ag_count));
         factory.createObject(ptr, data.agregators.back());
         data.print();
         break;
@@ -90,10 +90,12 @@ void MainWindow::on_pushButton_2_clicked()
     int size = data.agregators.size();
     ui->table->setRowCount(size);
     for(int x = 0; x<size; x++){
-        QTableWidgetItem *new_item = new QTableWidgetItem();
-        QString s = QString::number(data.agregators[x].content[0]->cpu);
-        new_item->setText(s);
-        ui->table->setItem(x,1, new_item);
+        QTableWidgetItem *i_id = new QTableWidgetItem();
+        i_id->setText(QString::number(data.agregators[x].content[0]->id));
+        ui->table->setItem(x,0, i_id);
+        QTableWidgetItem *i_cpu = new QTableWidgetItem();
+        i_cpu->setText(QString::number(data.agregators[x].content[0]->cpu));
+        ui->table->setItem(x,1, i_cpu);
 
     }
 }
