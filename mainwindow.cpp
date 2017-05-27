@@ -17,15 +17,15 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::startup(){
-    QVector<officeComputer> ofpc;
+    /*QVector<officeComputer> ofpc;
     QVector<lectureComputer> lcpc;
     QVector<programmingComputer> prpc;
     QVector<graphicComputer> grpc;
     QVector<server> srvpc;
     QVector<baseComputer> vecpc;
-    //officeComputer *newpc=new officeComputer;
-    //vecpc.push_back(newpc);
-    //baseComputer* mypc = new officeComputer;
+    officeComputer *newpc=new officeComputer;
+    vecpc.push_back(newpc);
+    baseComputer* mypc = new officeComputer;*/
 
     setData();
 }
@@ -70,11 +70,17 @@ void MainWindow::on_pushButton_clicked()
     switch (ui->comboBox->currentIndex()) {
     case 0:{
         baseComputer *ptr = new officeComputer(id,cpu,ram,display,printer);
-        factory.createObject(ptr, data.agregators.at(0));
+        data.agregators.push_back(Agregator("agx"));
+        factory.createObject(ptr, data.agregators.back());
         data.print();
         break;
     }
     default:
         break;
     }
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+
 }

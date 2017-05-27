@@ -2,7 +2,7 @@
 
 Data::Data()
 {
-    this->agregators.push_back(Agregator("ag_1"));
+   // this->agregators.push_back(Agregator("ag_1"));
 }
 
 void Data::print(){
