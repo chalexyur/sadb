@@ -23,10 +23,11 @@ public:
     ~MainWindow();
     void startup();
     int ag_count=0;
+    void DisableAll();
 
 private slots:
     void on_menuNew_triggered();
-
+    void on_comboBox_activated(int index);
     void on_menuExit_triggered();
 
     void on_pushButton_clicked();

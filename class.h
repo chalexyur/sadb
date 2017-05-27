@@ -26,6 +26,7 @@ class lectureComputer:public baseComputer{
 public:
     QString display;
     QString projector;
+    lectureComputer(int id,int cpu,int ram,QString display,QString projector);
 };
 
 class programmingComputer:public baseComputer{

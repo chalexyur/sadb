@@ -169,10 +169,10 @@
         <bool>true</bool>
        </property>
        <property name="inputMask">
-        <string>9</string>
+        <string/>
        </property>
        <property name="text">
-        <string>2</string>
+        <string/>
        </property>
        <property name="readOnly">
         <bool>true</bool>
@@ -201,10 +201,10 @@
         <bool>true</bool>
        </property>
        <property name="inputMask">
-        <string>99999</string>
+        <string/>
        </property>
        <property name="text">
-        <string>1400</string>
+        <string/>
        </property>
       </widget>
      </item>
@@ -224,10 +224,10 @@
         <bool>true</bool>
        </property>
        <property name="inputMask">
-        <string>99999</string>
+        <string/>
        </property>
        <property name="text">
-        <string>2048</string>
+        <string/>
        </property>
       </widget>
      </item>
@@ -238,16 +238,6 @@
        </property>
        <property name="text">
         <string>Монитор:</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="2">
-      <widget class="QLineEdit" name="lineEditDisplay">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="text">
-        <string>aic</string>
        </property>
       </widget>
      </item>
@@ -267,7 +257,7 @@
         <bool>true</bool>
        </property>
        <property name="text">
-        <string>cannn</string>
+        <string/>
        </property>
       </widget>
      </item>
@@ -306,7 +296,7 @@
       </widget>
      </item>
      <item row="8" column="0">
-      <widget class="QLabel" name="label_17">
+      <widget class="QLabel" name="label_9">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -319,6 +309,16 @@
       <widget class="QLineEdit" name="lineEditGpu">
        <property name="enabled">
         <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="2">
+      <widget class="QLineEdit" name="lineEditDisplay">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string/>
        </property>
       </widget>
      </item>

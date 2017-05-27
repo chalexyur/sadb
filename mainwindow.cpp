@@ -73,7 +73,15 @@ void MainWindow::on_pushButton_clicked()
     case 0:{
         baseComputer *ptr = new officeComputer(id,cpu,ram,display,printer);
         ag_count++;
-        data.agregators.push_back(Agregator(ag_count));
+        data.agregators.push_back(Agregator(0));
+        factory.createObject(ptr, data.agregators.back());
+        data.print();
+        break;
+    }
+    case 1:{
+        baseComputer *ptr = new lectureComputer(id,cpu,ram,display,projector);
+        ag_count++;
+        data.agregators.push_back(Agregator(1));
         factory.createObject(ptr, data.agregators.back());
         data.print();
         break;
@@ -86,16 +94,93 @@ void MainWindow::on_pushButton_clicked()
 void MainWindow::on_pushButton_2_clicked()
 {
     qDebug()<<data.agregators.size();
-
+    ui->table->setRowCount(0);
     int size = data.agregators.size();
     ui->table->setRowCount(size);
-    for(int x = 0; x<size; x++){
+    for(int i = 0; i<size; i++){
         QTableWidgetItem *i_id = new QTableWidgetItem();
-        i_id->setText(QString::number(data.agregators[x].content[0]->id));
-        ui->table->setItem(x,0, i_id);
+        i_id->setText(QString::number(data.agregators[i].content[0]->id));
+        ui->table->setItem(i,0, i_id);
+        QTableWidgetItem *i_cpu = new QTableWidgetItem();
+        i_cpu->setText(QString::number(data.agregators[i].content[0]->cpu));
+        ui->table->setItem(i,1, i_cpu);
+        QTableWidgetItem *i_ram = new QTableWidgetItem();
+        i_ram->setText(QString::number(data.agregators[i].content[0]->ram));
+        ui->table->setItem(i,2, i_ram);
+        QTableWidgetItem *i_display = new QTableWidgetItem();
+        i_display->setText(data.agregators[i].content[0]->display);
+        ui->table->setItem(i,3, i_display);
+        /*QTableWidgetItem *i_cpu = new QTableWidgetItem();
+        i_cpu->setText(QString::number(data.agregators[x].content[0]->cpu));
+        ui->table->setItem(x,1, i_cpu);
         QTableWidgetItem *i_cpu = new QTableWidgetItem();
         i_cpu->setText(QString::number(data.agregators[x].content[0]->cpu));
         ui->table->setItem(x,1, i_cpu);
+        QTableWidgetItem *i_cpu = new QTableWidgetItem();
+        i_cpu->setText(QString::number(data.agregators[x].content[0]->cpu));
+        ui->table->setItem(x,1, i_cpu);*/
 
+    }
+}
+
+void MainWindow::DisableAll() {
+    ui->lineEditId->clear();
+    ui->lineEditCpu->clear();
+    ui->lineEditRam->clear();
+    ui->lineEditDisplay->clear();
+    ui->lineEditPrinter->clear();
+    ui->lineEditProjector->clear();
+    ui->lineEditUps->clear();
+    ui->lineEditGpu->clear();
+    ui->label_5->setEnabled(false);
+    ui->lineEditDisplay->setEnabled(false);
+    ui->label_6->setEnabled(false);
+    ui->lineEditPrinter->setEnabled(false);
+    ui->label_7->setEnabled(false);
+    ui->lineEditProjector->setEnabled(false);
+    ui->label_8->setEnabled(false);
+    ui->lineEditUps->setEnabled(false);
+    ui->label_9->setEnabled(false);
+    ui->lineEditGpu->setEnabled(false);
+}
+
+void MainWindow::on_comboBox_activated(int index) {
+    switch (index) {
+    case 0: {
+        DisableAll();
+        ui->label_5->setEnabled(true);
+        ui->lineEditDisplay->setEnabled(true);
+        ui->label_6->setEnabled(true);
+        ui->lineEditPrinter->setEnabled(true);
+        break;
+    }
+    case 1: {
+        DisableAll();
+        ui->label_5->setEnabled(true);
+        ui->lineEditDisplay->setEnabled(true);
+        ui->label_7->setEnabled(true);
+        ui->lineEditProjector->setEnabled(true);
+        break;
+    }
+    case 2: {
+        DisableAll();
+        ui->label_5->setEnabled(true);
+        ui->lineEditDisplay->setEnabled(true);
+        break;
+    }
+    case 3: {
+        DisableAll();
+        ui->label_5->setEnabled(true);
+        ui->lineEditDisplay->setEnabled(true);
+        ui->label_9->setEnabled(true);
+        ui->lineEditGpu->setEnabled(true);
+        break;
+    }
+    case 4: {
+        DisableAll();
+        ui->label_8->setEnabled(true);
+        ui->lineEditUps->setEnabled(true);
+        break;
+    }
     }
 }
