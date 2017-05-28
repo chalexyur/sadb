@@ -3,13 +3,13 @@
 #include "class.h"
 #include <vector>
 
-class Agregator
+class Rooms
 {
 
 public:
-    QString param;
+    QString room;
     std::vector<baseComputer*> content;
-    Agregator(QString param);
+    Rooms(QString room);
 
     void print();
 };

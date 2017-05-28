@@ -29,14 +29,14 @@ SOURCES += main.cpp\
     data.cpp \
     factory.cpp \
     class.cpp \
-    agregator.cpp
+    room.cpp
 
 HEADERS  += mainwindow.h \
     newdialog.h \
     class.h \
-    agregator.h \
     data.h \
-    factory.h
+    factory.h \
+    room.h
 
 FORMS    += mainwindow.ui \
     newdialog.ui

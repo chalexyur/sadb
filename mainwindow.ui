@@ -69,7 +69,7 @@
      </property>
     </column>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="updTableBtn">
     <property name="geometry">
      <rect>
       <x>380</x>

@@ -2,12 +2,11 @@
 #define DATA_H
 
 #include <vector>
-#include "agregator.h"
+#include "room.h"
 class Data
 {
 public:
-    Data();
-    std::vector<Agregator> agregators;
+    std::vector<Rooms> room;
     void print();
 };
 

@@ -30,11 +30,15 @@ private slots:
 
     void on_menuExit_triggered();
 
-    void on_newRoomLE_textEdited(const QString &arg1);
+    void on_newRoomLE_textEdited();
 
     void on_addRoomBtn_clicked();
 
     void on_roomCB_activated(int index);
+
+    void on_delRoomBtn_clicked();
+
+    void on_updTableBtn_clicked();
 
 private:
     Ui::MainWindow *ui;

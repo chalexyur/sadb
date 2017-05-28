@@ -2,20 +2,20 @@
 #define FACTORY_H
 
 #include "class.h"
-#include "agregator.h"
+#include "room.h"
 
 class AbstractFactory
 {
 public:
-    virtual void createObject(baseComputer* classPtr, Agregator &ag) = 0;
+    virtual void createObject(baseComputer* classPtr, Rooms &ag) = 0;
 };
 
 class Factory : public AbstractFactory
 {
 public:
     Factory();
-    void createObject(baseComputer* classPtr, Agregator &ag);
-    void createObject(officeComputer* classPtr, Agregator &ag);
+    void createObject(baseComputer* classPtr, Rooms &ag);
+    void createObject(officeComputer* classPtr, Rooms &ag);
 };
 
 #endif // FACTORY_H

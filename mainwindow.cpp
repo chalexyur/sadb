@@ -36,8 +36,8 @@ void MainWindow::startup(){
 
 void MainWindow::updRooms(){
     ui->roomCB->clear();
-    for(int i=0; i<data.agregators.size(); i++){
-        ui->roomCB->addItem(data.agregators.at(i).param);
+    for(unsigned i=0; i<data.room.size(); i++){
+        ui->roomCB->addItem(data.room.at(i).room);
     }
 
 }
@@ -102,7 +102,7 @@ void MainWindow::on_menuExit_triggered()
     }
 }*/
 
-void MainWindow::on_newRoomLE_textEdited(const QString &arg1)
+void MainWindow::on_newRoomLE_textEdited()
 {
     if(ui->newRoomLE->text().isEmpty())
         ui->addRoomBtn->setEnabled(false);
@@ -112,51 +112,56 @@ void MainWindow::on_newRoomLE_textEdited(const QString &arg1)
 
 void MainWindow::on_addRoomBtn_clicked()
 {
-    data.agregators.push_back(Agregator(ui->newRoomLE->text()));
+    data.room.push_back(Rooms(ui->newRoomLE->text()));
     updRooms();
 
 }
 
 void MainWindow::on_roomCB_activated(int index)
 {
-    qDebug()<<data.agregators[index].content.size();
+
+
+}
+
+void MainWindow::on_delRoomBtn_clicked()
+{
+    data.room.erase(data.room.begin()+ui->roomCB->currentIndex());
+    updRooms();
+}
+
+void MainWindow::on_updTableBtn_clicked()
+{
+    int index = ui->roomCB->currentIndex();
+    qDebug()<<data.room[index].content.size();
     ui->table->setRowCount(0);
-    int size = data.agregators[index].content.size();
+    int size = data.room[index].content.size();
     ui->table->setRowCount(size);
     for(int i = 0; i<size; i++){
         QTableWidgetItem *i_id = new QTableWidgetItem();
-        i_id->setText(QString::number(data.agregators[index].content[i]->id));
+        i_id->setText(QString::number(data.room[index].content[i]->id));
         ui->table->setItem(i,0, i_id);
         QTableWidgetItem *i_cpu = new QTableWidgetItem();
-        i_cpu->setText(QString::number(data.agregators[index].content[i]->cpu));
+        i_cpu->setText(QString::number(data.room[index].content[i]->cpu));
         ui->table->setItem(i,1, i_cpu);
         QTableWidgetItem *i_ram = new QTableWidgetItem();
-        i_ram->setText(QString::number(data.agregators[index].content[i]->ram));
+        i_ram->setText(QString::number(data.room[index].content[i]->ram));
         ui->table->setItem(i,2, i_ram);
 
-
-
-
-
-
-
-
-
-        QTableWidgetItem *i_display = new QTableWidgetItem();
-
-        baseComputer* c = data.agregators[index].content[i];
+        /*QTableWidgetItem *i_display = new QTableWidgetItem();
+        baseComputer* c = data.room[index].content[i];
         officeComputer* ap = dynamic_cast<officeComputer*>(c);
         i_display->setText(ap->display);
+        ui->table->setItem(i,3, i_display);*/
 
-        ui->table->setItem(i,3, i_display);
         /*QTableWidgetItem *i_cpu = new QTableWidgetItem();
-        i_cpu->setText(QString::number(data.agregators[x].content[0]->cpu));
-        ui->table->setItem(x,1, i_cpu);
-        QTableWidgetItem *i_cpu = new QTableWidgetItem();
-        i_cpu->setText(QString::number(data.agregators[x].content[0]->cpu));
-        ui->table->setItem(x,1, i_cpu);
-        QTableWidgetItem *i_cpu = new QTableWidgetItem();
-        i_cpu->setText(QString::number(data.agregators[x].content[0]->cpu));
-        ui->table->setItem(x,1, i_cpu);*/
+    i_cpu->setText(QString::number(data.agregators[x].content[0]->cpu));
+    ui->table->setItem(x,1, i_cpu);
+    QTableWidgetItem *i_cpu = new QTableWidgetItem();
+    i_cpu->setText(QString::number(data.agregators[x].content[0]->cpu));
+    ui->table->setItem(x,1, i_cpu);
+    QTableWidgetItem *i_cpu = new QTableWidgetItem();
+    i_cpu->setText(QString::number(data.agregators[x].content[0]->cpu));
+    ui->table->setItem(x,1, i_cpu);*/
     }
+
 }

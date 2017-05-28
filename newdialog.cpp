@@ -2,7 +2,7 @@
 #include "ui_newdialog.h"
 #include "class.h"
 
-#include "agregator.h"
+#include "room.h"
 #include "data.h"
 #include "factory.h"
 #include "mainwindow.h"
@@ -20,9 +20,9 @@ NewDialog::NewDialog(QWidget *parent, Data *d_ptr, Factory *f_ptr) : QDialog(par
 NewDialog::~NewDialog() { delete ui; }
 
 void NewDialog::upd_room(){
-    ui->roomBox->clear();
-    for(unsigned i=0; i<d_ptr->agregators.size(); i++){
-        ui->roomBox->addItem(d_ptr->agregators.at(i).param);
+    ui->roomCB->clear();
+    for(unsigned i=0; i<d_ptr->room.size(); i++){
+        ui->roomCB->addItem(d_ptr->room.at(i).room);
     }
 }
 
@@ -46,25 +46,6 @@ void NewDialog::DisableAll() {
     ui->label_9->setEnabled(false);
     ui->lineEditGpu->setEnabled(false);
 }
-
-
-
-
-/*void NewDialog::addPC(){
-    switch (ui->roomBox->currentIndex()) {
-    case 0:{
-
-        ui->lineEditId->text().toInt();
-        ui->lineEditCpu->text().toInt();
-        ui->lineEditRam->text().toInt();
-        ui->lineEditDisplay->text();
-        ui->lineEditPrinter->text();
-
-        break;}
-    default:
-        break;
-    }
-}*/
 
 void NewDialog::on_typeBox_currentIndexChanged(int index)
 {
@@ -123,24 +104,15 @@ void NewDialog::on_buttonBox_accepted()
     ups=ui->lineEditUps->text();
     gpu=ui->lineEditGpu->text();
 
-
-
-    switch (ui->roomBox->currentIndex()) {
+    switch (ui->roomCB->currentIndex()) {
     case 0:{
         baseComputer *ptr = new officeComputer(id,cpu,ram,display,printer);
-        //ag_count++;
-        //data.agregators.push_back(Agregator(0));
-
-        f_ptr->createObject(ptr, d_ptr->agregators.at(ui->roomBox->currentIndex()));
-        d_ptr->print();
+        f_ptr->createObject(ptr, d_ptr->room.at(ui->roomCB->currentIndex()));
         break;
     }
     case 1:{
         baseComputer *ptr = new lectureComputer(id,cpu,ram,display,projector);
-        //ag_count++;
-        //data.agregators.push_back(Agregator(0));
-        f_ptr->createObject(ptr, d_ptr->agregators.back());
-        d_ptr->print();
+        f_ptr->createObject(ptr, d_ptr->room.back());
         break;
     }
     default:
