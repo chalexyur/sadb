@@ -5,6 +5,7 @@
 #include "QTableWidget"
 #include "QString"
 
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -43,7 +44,11 @@ void MainWindow::setData(){
 
 void MainWindow::on_menuNew_triggered()
 {
-    NewDialog* objNewDialog = new NewDialog();
+    Data *dptr=&data;
+    NewDialog* objNewDialog = new NewDialog(this, dptr);
+
+
+
     if(objNewDialog->exec()==QDialog::Accepted){
         objNewDialog->addPC();
         QTableWidgetItem *item_00 = new QTableWidgetItem();

@@ -24,8 +24,8 @@
    <widget class="QTreeView" name="treeView">
     <property name="geometry">
      <rect>
-      <x>980</x>
-      <y>0</y>
+      <x>870</x>
+      <y>40</y>
       <width>121</width>
       <height>241</height>
      </rect>
@@ -82,7 +82,7 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>880</x>
+      <x>1030</x>
       <y>590</y>
       <width>75</width>
       <height>23</height>
@@ -369,6 +369,26 @@
     <property name="text">
      <string>добавит агр</string>
     </property>
+   </widget>
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>380</y>
+      <width>491</width>
+      <height>231</height>
+     </rect>
+    </property>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>Tab 1</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>Tab 2</string>
+     </attribute>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">

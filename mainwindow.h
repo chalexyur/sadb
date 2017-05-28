@@ -14,15 +14,15 @@ class MainWindow;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-    Data data;
-    Factory factory;
+
     void setData();
 
 public:
+    Data data;
+    Factory factory;
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     void startup();
-    int ag_count=0;
     void DisableAll();
 
 private slots:

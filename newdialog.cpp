@@ -2,11 +2,28 @@
 #include "ui_newdialog.h"
 #include "class.h"
 
+#include "agregator.h"
+#include "data.h"
+#include "factory.h"
+#include "mainwindow.h"
+
 NewDialog::NewDialog(QWidget *parent) : QDialog(parent), ui(new Ui::NewDialog) {
     ui->setupUi(this);
 }
+NewDialog::NewDialog(QWidget *parent, Data *dptr) : QDialog(parent), ui(new Ui::NewDialog) {
+    ui->setupUi(this);
+    this->dptr=dptr;
+    upd_room();
+}
 
 NewDialog::~NewDialog() { delete ui; }
+
+void NewDialog::upd_room(){
+    ui->roomBox->clear();
+    for(int i=0; i<dptr->agregators.size(); i++){
+        ui->roomBox->addItem(dptr->agregators.at(i).param);
+    }
+}
 
 void NewDialog::DisableAll() {
     ui->label_5->setEnabled(false);
@@ -63,7 +80,7 @@ void NewDialog::on_comboBox_activated(int index) {
 }
 
 void NewDialog::addPC(){
-    switch (ui->comboBox->currentIndex()) {
+    switch (ui->roomBox->currentIndex()) {
     case 0:{
 
         ui->lineEditId->text().toInt();
