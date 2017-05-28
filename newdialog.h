@@ -5,7 +5,6 @@
 
 #include "data.h"
 #include "factory.h"
-#include "class.h"
 
 namespace Ui {
 class NewDialog;
@@ -17,15 +16,19 @@ class NewDialog : public QDialog
 
 public:
     explicit NewDialog(QWidget *parent = 0);
-    NewDialog(QWidget *parent, Data *d_ptr);
+    NewDialog(QWidget *parent, Data *d_ptr, Factory *f_ptr);
     ~NewDialog();
     void DisableAll();
     void addPC();
     void upd_room();
-    Data *dptr;
+    Data *d_ptr;
+    Factory *f_ptr;
 
 private slots:
-    void on_comboBox_activated(int index);
+
+    void on_typeBox_currentIndexChanged(int index);
+
+    void on_buttonBox_accepted();
 
 private:
     Ui::NewDialog *ui;

@@ -30,31 +30,32 @@ void MainWindow::startup(){
     vecpc.push_back(newpc);
     baseComputer* mypc = new officeComputer;*/
 
-    setData();
+    updRooms();
 }
 
 
-void MainWindow::setData(){
-    ui->ag_cb->clear();
+void MainWindow::updRooms(){
+    ui->roomCB->clear();
     for(int i=0; i<data.agregators.size(); i++){
-        ui->ag_cb->addItem(data.agregators.at(i).param);
+        ui->roomCB->addItem(data.agregators.at(i).param);
     }
 
 }
 
 void MainWindow::on_menuNew_triggered()
 {
-    Data *dptr=&data;
-    NewDialog* objNewDialog = new NewDialog(this, dptr);
+    Data *d_ptr=&data;
+    Factory *f_ptr=&factory;
+    NewDialog* objNewDialog = new NewDialog(this, d_ptr, f_ptr);
 
 
-
-    if(objNewDialog->exec()==QDialog::Accepted){
+    objNewDialog->exec();
+    /*if(objNewDialog->exec()==QDialog::Accepted){
         objNewDialog->addPC();
         QTableWidgetItem *item_00 = new QTableWidgetItem();
         item_00->setText("as");
         ui->table->setItem(0,0,item_00);
-    }
+    }*/
 }
 
 void MainWindow::on_menuExit_triggered()
@@ -62,8 +63,8 @@ void MainWindow::on_menuExit_triggered()
     QCoreApplication::exit();
 }
 
-void MainWindow::on_pushButton_clicked()
-{
+/*void MainWindow::on_pushButton_clicked()
+{/*
     int id, cpu, ram;
     QString display, printer, projector, ups, gpu;
 
@@ -99,24 +100,38 @@ void MainWindow::on_pushButton_clicked()
     default:
         break;
     }
+}*/
+
+void MainWindow::on_newRoomLE_textEdited(const QString &arg1)
+{
+    if(ui->newRoomLE->text().isEmpty())
+        ui->addRoomBtn->setEnabled(false);
+    else
+        ui->addRoomBtn->setEnabled(true);
 }
 
-void MainWindow::on_pushButton_2_clicked()
+void MainWindow::on_addRoomBtn_clicked()
 {
-    int agr_idx= ui->ag_cb->currentIndex();
-    qDebug()<<data.agregators[agr_idx].content.size();
+    data.agregators.push_back(Agregator(ui->newRoomLE->text()));
+    updRooms();
+
+}
+
+void MainWindow::on_roomCB_activated(int index)
+{
+    qDebug()<<data.agregators[index].content.size();
     ui->table->setRowCount(0);
-    int size = data.agregators[agr_idx].content.size();
+    int size = data.agregators[index].content.size();
     ui->table->setRowCount(size);
     for(int i = 0; i<size; i++){
         QTableWidgetItem *i_id = new QTableWidgetItem();
-        i_id->setText(QString::number(data.agregators[agr_idx].content[i]->id));
+        i_id->setText(QString::number(data.agregators[index].content[i]->id));
         ui->table->setItem(i,0, i_id);
         QTableWidgetItem *i_cpu = new QTableWidgetItem();
-        i_cpu->setText(QString::number(data.agregators[agr_idx].content[i]->cpu));
+        i_cpu->setText(QString::number(data.agregators[index].content[i]->cpu));
         ui->table->setItem(i,1, i_cpu);
         QTableWidgetItem *i_ram = new QTableWidgetItem();
-        i_ram->setText(QString::number(data.agregators[agr_idx].content[i]->ram));
+        i_ram->setText(QString::number(data.agregators[index].content[i]->ram));
         ui->table->setItem(i,2, i_ram);
 
 
@@ -129,7 +144,7 @@ void MainWindow::on_pushButton_2_clicked()
 
         QTableWidgetItem *i_display = new QTableWidgetItem();
 
-        baseComputer* c = data.agregators[agr_idx].content[i];
+        baseComputer* c = data.agregators[index].content[i];
         officeComputer* ap = dynamic_cast<officeComputer*>(c);
         i_display->setText(ap->display);
 
@@ -143,74 +158,5 @@ void MainWindow::on_pushButton_2_clicked()
         QTableWidgetItem *i_cpu = new QTableWidgetItem();
         i_cpu->setText(QString::number(data.agregators[x].content[0]->cpu));
         ui->table->setItem(x,1, i_cpu);*/
-
     }
-}
-
-void MainWindow::DisableAll() {
-    ui->lineEditId->clear();
-    ui->lineEditCpu->clear();
-    ui->lineEditRam->clear();
-    ui->lineEditDisplay->clear();
-    ui->lineEditPrinter->clear();
-    ui->lineEditProjector->clear();
-    ui->lineEditUps->clear();
-    ui->lineEditGpu->clear();
-    ui->label_5->setEnabled(false);
-    ui->lineEditDisplay->setEnabled(false);
-    ui->label_6->setEnabled(false);
-    ui->lineEditPrinter->setEnabled(false);
-    ui->label_7->setEnabled(false);
-    ui->lineEditProjector->setEnabled(false);
-    ui->label_8->setEnabled(false);
-    ui->lineEditUps->setEnabled(false);
-    ui->label_9->setEnabled(false);
-    ui->lineEditGpu->setEnabled(false);
-}
-
-void MainWindow::on_comboBox_activated(int index) {
-    switch (index) {
-    case 0: {
-        DisableAll();
-        ui->label_5->setEnabled(true);
-        ui->lineEditDisplay->setEnabled(true);
-        ui->label_6->setEnabled(true);
-        ui->lineEditPrinter->setEnabled(true);
-        break;
-    }
-    case 1: {
-        DisableAll();
-        ui->label_5->setEnabled(true);
-        ui->lineEditDisplay->setEnabled(true);
-        ui->label_7->setEnabled(true);
-        ui->lineEditProjector->setEnabled(true);
-        break;
-    }
-    case 2: {
-        DisableAll();
-        ui->label_5->setEnabled(true);
-        ui->lineEditDisplay->setEnabled(true);
-        break;
-    }
-    case 3: {
-        DisableAll();
-        ui->label_5->setEnabled(true);
-        ui->lineEditDisplay->setEnabled(true);
-        ui->label_9->setEnabled(true);
-        ui->lineEditGpu->setEnabled(true);
-        break;
-    }
-    case 4: {
-        DisableAll();
-        ui->label_8->setEnabled(true);
-        ui->lineEditUps->setEnabled(true);
-        break;
-    }
-    }
-}
-
-void MainWindow::on_pushButton_3_clicked()
-{
-    data.agregators.push_back(Agregator(ui->lineEdit->text()));
-    setData();
 }

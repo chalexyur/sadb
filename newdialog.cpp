@@ -10,9 +10,10 @@
 NewDialog::NewDialog(QWidget *parent) : QDialog(parent), ui(new Ui::NewDialog) {
     ui->setupUi(this);
 }
-NewDialog::NewDialog(QWidget *parent, Data *dptr) : QDialog(parent), ui(new Ui::NewDialog) {
+NewDialog::NewDialog(QWidget *parent, Data *d_ptr, Factory *f_ptr) : QDialog(parent), ui(new Ui::NewDialog) {
     ui->setupUi(this);
-    this->dptr=dptr;
+    this->d_ptr=d_ptr;
+    this->f_ptr=f_ptr;
     upd_room();
 }
 
@@ -20,12 +21,20 @@ NewDialog::~NewDialog() { delete ui; }
 
 void NewDialog::upd_room(){
     ui->roomBox->clear();
-    for(int i=0; i<dptr->agregators.size(); i++){
-        ui->roomBox->addItem(dptr->agregators.at(i).param);
+    for(unsigned i=0; i<d_ptr->agregators.size(); i++){
+        ui->roomBox->addItem(d_ptr->agregators.at(i).param);
     }
 }
 
 void NewDialog::DisableAll() {
+    ui->lineEditId->clear();
+    ui->lineEditCpu->clear();
+    ui->lineEditRam->clear();
+    ui->lineEditDisplay->clear();
+    ui->lineEditPrinter->clear();
+    ui->lineEditProjector->clear();
+    ui->lineEditUps->clear();
+    ui->lineEditGpu->clear();
     ui->label_5->setEnabled(false);
     ui->lineEditDisplay->setEnabled(false);
     ui->label_6->setEnabled(false);
@@ -38,7 +47,27 @@ void NewDialog::DisableAll() {
     ui->lineEditGpu->setEnabled(false);
 }
 
-void NewDialog::on_comboBox_activated(int index) {
+
+
+
+/*void NewDialog::addPC(){
+    switch (ui->roomBox->currentIndex()) {
+    case 0:{
+
+        ui->lineEditId->text().toInt();
+        ui->lineEditCpu->text().toInt();
+        ui->lineEditRam->text().toInt();
+        ui->lineEditDisplay->text();
+        ui->lineEditPrinter->text();
+
+        break;}
+    default:
+        break;
+    }
+}*/
+
+void NewDialog::on_typeBox_currentIndexChanged(int index)
+{
     switch (index) {
     case 0: {
         DisableAll();
@@ -77,19 +106,43 @@ void NewDialog::on_comboBox_activated(int index) {
         break;
     }
     }
+
 }
 
-void NewDialog::addPC(){
+void NewDialog::on_buttonBox_accepted()
+{
+    int id, cpu, ram;
+    QString display, printer, projector, ups, gpu;
+
+    id=ui->lineEditId->text().toInt();
+    cpu=ui->lineEditCpu->text().toInt();
+    ram=ui->lineEditRam->text().toInt();
+    display=ui->lineEditDisplay->text();
+    printer=ui->lineEditPrinter->text();
+    projector=ui->lineEditProjector->text();
+    ups=ui->lineEditUps->text();
+    gpu=ui->lineEditGpu->text();
+
+
+
     switch (ui->roomBox->currentIndex()) {
     case 0:{
+        baseComputer *ptr = new officeComputer(id,cpu,ram,display,printer);
+        //ag_count++;
+        //data.agregators.push_back(Agregator(0));
 
-        ui->lineEditId->text().toInt();
-        ui->lineEditCpu->text().toInt();
-        ui->lineEditRam->text().toInt();
-        ui->lineEditDisplay->text();
-        ui->lineEditPrinter->text();
-
-        break;}
+        f_ptr->createObject(ptr, d_ptr->agregators.at(ui->roomBox->currentIndex()));
+        d_ptr->print();
+        break;
+    }
+    case 1:{
+        baseComputer *ptr = new lectureComputer(id,cpu,ram,display,projector);
+        //ag_count++;
+        //data.agregators.push_back(Agregator(0));
+        f_ptr->createObject(ptr, d_ptr->agregators.back());
+        d_ptr->print();
+        break;
+    }
     default:
         break;
     }

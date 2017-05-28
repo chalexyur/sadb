@@ -15,7 +15,7 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
-    void setData();
+    void updRooms();
 
 public:
     Data data;
@@ -27,14 +27,14 @@ public:
 
 private slots:
     void on_menuNew_triggered();
-    void on_comboBox_activated(int index);
+
     void on_menuExit_triggered();
 
-    void on_pushButton_clicked();
+    void on_newRoomLE_textEdited(const QString &arg1);
 
-    void on_pushButton_2_clicked();
+    void on_addRoomBtn_clicked();
 
-    void on_pushButton_3_clicked();
+    void on_roomCB_activated(int index);
 
 private:
     Ui::MainWindow *ui;
