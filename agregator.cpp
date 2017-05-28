@@ -1,7 +1,7 @@
 #include "agregator.h"
 #include <QDebug>
 
-Agregator::Agregator(int param)
+Agregator::Agregator(QString param)
 {
     this->param = param;
 

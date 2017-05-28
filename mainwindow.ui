@@ -89,7 +89,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>добавить пк</string>
     </property>
    </widget>
    <widget class="QWidget" name="layoutWidget">
@@ -327,14 +327,47 @@
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>510</y>
+      <x>30</x>
+      <y>340</y>
+      <width>371</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>отобр на табл из выбр агр</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="ag_cb">
+    <property name="geometry">
+     <rect>
+      <x>720</x>
+      <y>370</y>
+      <width>69</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>370</y>
+      <width>113</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_3">
+    <property name="geometry">
+     <rect>
+      <x>590</x>
+      <y>400</y>
       <width>75</width>
       <height>23</height>
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>добавит агр</string>
     </property>
    </widget>
   </widget>

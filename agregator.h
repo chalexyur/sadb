@@ -7,9 +7,9 @@ class Agregator
 {
 
 public:
-    int param;
+    QString param;
     std::vector<baseComputer*> content;
-    Agregator(int param);
+    Agregator(QString param);
 
     void print();
 };

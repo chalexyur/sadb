@@ -1,5 +1,6 @@
 #include "class.h"
 #include <QDebug>
+#include <mainwindow.h>
 
 baseComputer::baseComputer(int id, int cpu, int ram){
     this->id =id;
@@ -22,7 +23,8 @@ officeComputer::officeComputer(int id,int cpu,int ram,QString display,QString pr
 
 void officeComputer::print(){    
     qDebug()<< "ofpc:" << id<<cpu<<ram<<display<<printer;
-    baseComputer::print();
+
+    //baseComputer::print();
 }
 
 lectureComputer::lectureComputer(int id, int cpu, int ram, QString display, QString projector)
