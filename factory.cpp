@@ -5,14 +5,32 @@ Factory::Factory()
 
 }
 
-void Factory::createObject(baseComputer* classPtr, Rooms &ag)
+void Factory::createObject(baseComputer* classPtr, Rooms &room)
 {
-    // здесь может быть любого рода проверка
-    ag.content.push_back(classPtr);
+    room.content.push_back(classPtr);
 }
 
-void Factory::createObject(officeComputer* classPtr, Rooms &ag)
+void Factory::createObject(officeComputer* classPtr, Rooms &room)
 {
-    // здесь может быть любого рода проверка
-    createObject(dynamic_cast<baseComputer*>(classPtr), ag);
+    createObject(dynamic_cast<baseComputer*>(classPtr), room);
+}
+
+void Factory::createObject(lectureComputer* classPtr, Rooms &room)
+{
+    createObject(dynamic_cast<lectureComputer*>(classPtr), room);
+}
+
+void Factory::createObject(programmingComputer* classPtr, Rooms &room)
+{
+    createObject(dynamic_cast<programmingComputer*>(classPtr), room);
+}
+
+void Factory::createObject(graphicComputer* classPtr, Rooms &room)
+{
+    createObject(dynamic_cast<graphicComputer*>(classPtr), room);
+}
+
+void Factory::createObject(server* classPtr, Rooms &room)
+{
+    createObject(dynamic_cast<server*>(classPtr), room);
 }

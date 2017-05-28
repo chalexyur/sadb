@@ -49,6 +49,42 @@ void NewDialog::DisableAll() {
 
 void NewDialog::on_typeBox_currentIndexChanged(int index)
 {
+
+
+}
+
+void NewDialog::on_buttonBox_accepted()
+{
+    int id, cpu, ram;
+    QString display, printer, projector, ups, gpu;
+
+    id=ui->lineEditId->text().toInt();
+    cpu=ui->lineEditCpu->text().toInt();
+    ram=ui->lineEditRam->text().toInt();
+    display=ui->lineEditDisplay->text();
+    printer=ui->lineEditPrinter->text();
+    projector=ui->lineEditProjector->text();
+    ups=ui->lineEditUps->text();
+    gpu=ui->lineEditGpu->text();
+
+    switch (ui->typeCB->currentIndex()) {
+    case 0:{
+        baseComputer *ptr = new officeComputer(id,cpu,ram,display,printer);
+        f_ptr->createObject(ptr, d_ptr->room.at(ui->roomCB->currentIndex()));
+        break;
+    }
+    case 1:{
+        baseComputer *ptr = new lectureComputer(id,cpu,ram,display,projector);
+        f_ptr->createObject(ptr, d_ptr->room.back());
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+void NewDialog::on_typeCB_currentIndexChanged(int index)
+{
     switch (index) {
     case 0: {
         DisableAll();
@@ -88,34 +124,4 @@ void NewDialog::on_typeBox_currentIndexChanged(int index)
     }
     }
 
-}
-
-void NewDialog::on_buttonBox_accepted()
-{
-    int id, cpu, ram;
-    QString display, printer, projector, ups, gpu;
-
-    id=ui->lineEditId->text().toInt();
-    cpu=ui->lineEditCpu->text().toInt();
-    ram=ui->lineEditRam->text().toInt();
-    display=ui->lineEditDisplay->text();
-    printer=ui->lineEditPrinter->text();
-    projector=ui->lineEditProjector->text();
-    ups=ui->lineEditUps->text();
-    gpu=ui->lineEditGpu->text();
-
-    switch (ui->roomCB->currentIndex()) {
-    case 0:{
-        baseComputer *ptr = new officeComputer(id,cpu,ram,display,printer);
-        f_ptr->createObject(ptr, d_ptr->room.at(ui->roomCB->currentIndex()));
-        break;
-    }
-    case 1:{
-        baseComputer *ptr = new lectureComputer(id,cpu,ram,display,projector);
-        f_ptr->createObject(ptr, d_ptr->room.back());
-        break;
-    }
-    default:
-        break;
-    }
 }

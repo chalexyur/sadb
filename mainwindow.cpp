@@ -46,61 +46,16 @@ void MainWindow::on_menuNew_triggered()
 {
     Data *d_ptr=&data;
     Factory *f_ptr=&factory;
-    NewDialog* objNewDialog = new NewDialog(this, d_ptr, f_ptr);
-
-
-    objNewDialog->exec();
-    /*if(objNewDialog->exec()==QDialog::Accepted){
-        objNewDialog->addPC();
-        QTableWidgetItem *item_00 = new QTableWidgetItem();
-        item_00->setText("as");
-        ui->table->setItem(0,0,item_00);
-    }*/
+    NewDialog* objNewDialog = new NewDialog(this, d_ptr, f_ptr);    
+    if(objNewDialog->exec()==QDialog::Accepted){
+       emit ui->roomCB->activated(ui->roomCB->currentIndex());
+    }
 }
 
 void MainWindow::on_menuExit_triggered()
 {
     QCoreApplication::exit();
 }
-
-/*void MainWindow::on_pushButton_clicked()
-{/*
-    int id, cpu, ram;
-    QString display, printer, projector, ups, gpu;
-
-    id=ui->lineEditId->text().toInt();
-    cpu=ui->lineEditCpu->text().toInt();
-    ram=ui->lineEditRam->text().toInt();
-    display=ui->lineEditDisplay->text();
-    printer=ui->lineEditPrinter->text();
-    projector=ui->lineEditProjector->text();
-    ups=ui->lineEditUps->text();
-    gpu=ui->lineEditGpu->text();
-
-
-
-    switch (ui->comboBox->currentIndex()) {
-    case 0:{
-        baseComputer *ptr = new officeComputer(id,cpu,ram,display,printer);
-        //ag_count++;
-        //data.agregators.push_back(Agregator(0));
-
-        factory.createObject(ptr, data.agregators.at(ui->ag_cb->currentIndex()));
-        data.print();
-        break;
-    }
-    case 1:{
-        baseComputer *ptr = new lectureComputer(id,cpu,ram,display,projector);
-        //ag_count++;
-        //data.agregators.push_back(Agregator(0));
-        factory.createObject(ptr, data.agregators.back());
-        data.print();
-        break;
-    }
-    default:
-        break;
-    }
-}*/
 
 void MainWindow::on_newRoomLE_textEdited()
 {
@@ -113,26 +68,15 @@ void MainWindow::on_newRoomLE_textEdited()
 void MainWindow::on_addRoomBtn_clicked()
 {
     data.room.push_back(Rooms(ui->newRoomLE->text()));
+    ui->newRoomLE->clear();
+    ui->addRoomBtn->setEnabled(false);
     updRooms();
-
 }
 
 void MainWindow::on_roomCB_activated(int index)
 {
-
-
-}
-
-void MainWindow::on_delRoomBtn_clicked()
-{
-    data.room.erase(data.room.begin()+ui->roomCB->currentIndex());
-    updRooms();
-}
-
-void MainWindow::on_updTableBtn_clicked()
-{
-    int index = ui->roomCB->currentIndex();
-    qDebug()<<data.room[index].content.size();
+   // int index = ui->roomCB->currentIndex();
+   // qDebug()<<data.room[index].content.size();
     ui->table->setRowCount(0);
     int size = data.room[index].content.size();
     ui->table->setRowCount(size);
@@ -147,11 +91,11 @@ void MainWindow::on_updTableBtn_clicked()
         i_ram->setText(QString::number(data.room[index].content[i]->ram));
         ui->table->setItem(i,2, i_ram);
 
-        /*QTableWidgetItem *i_display = new QTableWidgetItem();
+        QTableWidgetItem *i_display = new QTableWidgetItem();
         baseComputer* c = data.room[index].content[i];
         officeComputer* ap = dynamic_cast<officeComputer*>(c);
         i_display->setText(ap->display);
-        ui->table->setItem(i,3, i_display);*/
+        ui->table->setItem(i,3, i_display);
 
         /*QTableWidgetItem *i_cpu = new QTableWidgetItem();
     i_cpu->setText(QString::number(data.agregators[x].content[0]->cpu));
@@ -163,5 +107,19 @@ void MainWindow::on_updTableBtn_clicked()
     i_cpu->setText(QString::number(data.agregators[x].content[0]->cpu));
     ui->table->setItem(x,1, i_cpu);*/
     }
+
+
+}
+
+void MainWindow::on_delRoomBtn_clicked()
+{
+    data.room.erase(data.room.begin()+ui->roomCB->currentIndex());
+    updRooms();
+    emit ui->roomCB->activated(ui->roomCB->currentIndex());
+}
+
+void MainWindow::on_updTableBtn_clicked()
+{
+
 
 }

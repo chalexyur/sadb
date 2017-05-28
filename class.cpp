@@ -19,6 +19,7 @@ officeComputer::officeComputer(int id,int cpu,int ram,QString display,QString pr
     this->ram =ram;
     this->display=display;
     this->printer=printer;
+    qDebug()<< "ofpc:" << id<<cpu<<ram<<display<<printer;
 }
 
 void officeComputer::print(){    
@@ -34,5 +35,32 @@ lectureComputer::lectureComputer(int id, int cpu, int ram, QString display, QStr
     this->ram =ram;
     this->display=display;
     this->projector=projector;
+    qDebug()<< "lecpc:" << id<<cpu<<ram<<display<<projector;
 
+}
+
+programmingComputer::programmingComputer(int id,int cpu,int ram,QString display)
+    :baseComputer(id, cpu, ram){
+    this->id =id;
+    this->cpu=cpu;
+    this->ram =ram;
+    this->display=display;
+    qDebug()<< "progpc:" << id<<cpu<<ram<<display;
+}
+graphicComputer::graphicComputer(int id,int cpu,int ram,QString display,QString gpu)
+    :baseComputer(id, cpu, ram){
+    this->id =id;
+    this->cpu=cpu;
+    this->ram =ram;
+    this->display=display;
+    this->gpu=gpu;
+    qDebug()<< "grpc:" << id<<cpu<<ram<<display<<gpu;
+}
+server::server(int id,int cpu,int ram,QString ups)
+    :baseComputer(id, cpu, ram){
+    this->id =id;
+    this->cpu=cpu;
+    this->ram =ram;
+    this->ups=ups;
+    qDebug()<< "server:" << id<<cpu<<ram<<ups;
 }

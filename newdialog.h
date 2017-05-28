@@ -30,6 +30,8 @@ private slots:
 
     void on_buttonBox_accepted();
 
+    void on_typeCB_currentIndexChanged(int index);
+
 private:
     Ui::NewDialog *ui;
 };

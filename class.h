@@ -32,17 +32,20 @@ public:
 class programmingComputer:public baseComputer{
 public:
     QString display;
+    programmingComputer(int id,int cpu,int ram,QString display);
 };
 
 class graphicComputer:public baseComputer{
 public:
     QString display;
     QString gpu;
+    graphicComputer(int id,int cpu,int ram,QString display,QString gpu);
 };
 
 class server:public baseComputer{
 public:
     QString ups;
+    server(int id,int cpu,int ram,QString ups);
 };
 
 #endif // CLASS_H
