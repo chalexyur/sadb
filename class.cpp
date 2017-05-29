@@ -2,21 +2,19 @@
 #include <QDebug>
 #include <mainwindow.h>
 
-baseComputer::baseComputer(int id, int cpu, int ram){
-    this->id =id;
+baseComputer::baseComputer(int cpu, int ram){
+    this->id =0;
     this->cpu=cpu;
     this->ram =ram;
-    qDebug() <<"bspc:"<< id<<cpu<<ram;
 }
 
-officeComputer::officeComputer(int id,int cpu,int ram,QString display,QString printer)
-    :baseComputer(id, cpu, ram){
-    this->id =id;
+officeComputer::officeComputer(int cpu,int ram,QString display,QString printer)
+    :baseComputer(cpu, ram){
+    this->id =1;
     this->cpu=cpu;
     this->ram =ram;
     this->display=display;
     this->printer=printer;
-    qDebug()<< "ofpc:" << id<<cpu<<ram<<display<<printer;
 }
 
 QString officeComputer::get_display(){
@@ -27,14 +25,13 @@ QString officeComputer::get_printer(){
     return this->printer;
 }
 
-lectureComputer::lectureComputer(int id, int cpu, int ram, QString display, QString projector)
-    :baseComputer(id, cpu, ram){
-    this->id =id;
+lectureComputer::lectureComputer(int cpu, int ram, QString display, QString projector)
+    :baseComputer(cpu, ram){
+    this->id =2;
     this->cpu=cpu;
     this->ram =ram;
     this->display=display;
     this->projector=projector;
-    qDebug()<< "lecpc:" << id<<cpu<<ram<<display<<projector;
 }
 
 QString lectureComputer::get_display(){
@@ -45,27 +42,25 @@ QString lectureComputer::get_projector(){
     return this->projector;
 }
 
-programmingComputer::programmingComputer(int id,int cpu,int ram,QString display)
-    :baseComputer(id, cpu, ram){
-    this->id =id;
+programmingComputer::programmingComputer(int cpu,int ram,QString display)
+    :baseComputer(cpu, ram){
+    this->id =3;
     this->cpu=cpu;
     this->ram =ram;
     this->display=display;
-    qDebug()<< "progpc:" << id<<cpu<<ram<<display;
 }
 
 QString programmingComputer::get_display(){
     return this->display;
 }
 
-graphicComputer::graphicComputer(int id,int cpu,int ram,QString display,QString gpu)
-    :baseComputer(id, cpu, ram){
-    this->id =id;
+graphicComputer::graphicComputer(int cpu,int ram,QString display,QString gpu)
+    :baseComputer(cpu, ram){
+    this->id =4;
     this->cpu=cpu;
     this->ram =ram;
     this->display=display;
     this->gpu=gpu;
-    qDebug()<< "grpc:" << id<<cpu<<ram<<display<<gpu;
 }
 
 QString graphicComputer::get_display(){
@@ -76,13 +71,12 @@ QString graphicComputer::get_gpu(){
     return this->gpu;
 }
 
-server::server(int id,int cpu,int ram,QString ups)
-    :baseComputer(id, cpu, ram){
-    this->id =id;
+server::server(int cpu,int ram,QString ups)
+    :baseComputer(cpu, ram){
+    this->id =5;
     this->cpu=cpu;
     this->ram =ram;
     this->ups=ups;
-    qDebug()<< "server:" << id<<cpu<<ram<<ups;
 }
 
 QString server::get_ups(){

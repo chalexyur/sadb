@@ -22,8 +22,6 @@ public:
     Factory factory;
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    void startup();
-    void DisableAll();
 
 private slots:
     void on_menuNew_triggered();

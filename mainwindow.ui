@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>837</width>
-    <height>279</height>
+    <width>874</width>
+    <height>311</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,134 +21,151 @@
    <locale language="Russian" country="Russia"/>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QTableWidget" name="table">
-    <property name="geometry">
-     <rect>
-      <x>9</x>
-      <y>69</y>
-      <width>821</width>
-      <height>151</height>
-     </rect>
-    </property>
-    <property name="sortingEnabled">
-     <bool>false</bool>
-    </property>
-    <column>
-     <property name="text">
-      <string>id</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>cpu</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>ram</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>display</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>printer</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>projector</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>ups</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>gpu</string>
-     </property>
-    </column>
-   </widget>
-   <widget class="QPushButton" name="updTableBtn">
-    <property name="geometry">
-     <rect>
-      <x>380</x>
-      <y>40</y>
-      <width>143</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>отобр на табл из выбр агр</string>
-    </property>
-    <property name="checkable">
-     <bool>false</bool>
-    </property>
-    <property name="flat">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>9</x>
-      <y>9</y>
-      <width>353</width>
-      <height>54</height>
-     </rect>
-    </property>
-    <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="0">
-      <widget class="QLabel" name="label">
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="0" column="0">
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Имя новой комнаты:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="newRoomLE"/>
+      </item>
+      <item row="0" column="2">
+       <widget class="QPushButton" name="addRoomBtn">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Добавить комнату</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Комната:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QComboBox" name="roomCB"/>
+      </item>
+      <item row="1" column="2">
+       <widget class="QPushButton" name="delRoomBtn">
+        <property name="text">
+         <string>Удалить комнату</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="0" column="1">
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>345</width>
+        <height>38</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="2">
+     <widget class="QPushButton" name="updTableBtn">
+      <property name="text">
+       <string>отобр на табл из выбр агр</string>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0" colspan="3">
+     <widget class="QTableWidget" name="table">
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <property name="sizeAdjustPolicy">
+       <enum>QAbstractScrollArea::AdjustToContents</enum>
+      </property>
+      <property name="showGrid">
+       <bool>true</bool>
+      </property>
+      <property name="sortingEnabled">
+       <bool>false</bool>
+      </property>
+      <property name="cornerButtonEnabled">
+       <bool>false</bool>
+      </property>
+      <property name="rowCount">
+       <number>1</number>
+      </property>
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>80</number>
+      </attribute>
+      <row/>
+      <column>
        <property name="text">
-        <string>Имя новой комнаты:</string>
+        <string>id</string>
        </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QLineEdit" name="newRoomLE"/>
-     </item>
-     <item row="0" column="2">
-      <widget class="QPushButton" name="addRoomBtn">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
+      </column>
+      <column>
        <property name="text">
-        <string>Добавить комнату</string>
+        <string>cpu</string>
        </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="label_2">
+      </column>
+      <column>
        <property name="text">
-        <string>Комната:</string>
+        <string>ram</string>
        </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QComboBox" name="roomCB"/>
-     </item>
-     <item row="1" column="2">
-      <widget class="QPushButton" name="delRoomBtn">
+      </column>
+      <column>
        <property name="text">
-        <string>Удалить комнату</string>
+        <string>display</string>
        </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
+      </column>
+      <column>
+       <property name="text">
+        <string>printer</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>projector</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>ups</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>gpu</string>
+       </property>
+      </column>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>837</width>
+     <width>874</width>
      <height>21</height>
     </rect>
    </property>

@@ -11,28 +11,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    startup();
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
-
-void MainWindow::startup(){
-    /*QVector<officeComputer> ofpc;
-    QVector<lectureComputer> lcpc;
-    QVector<programmingComputer> prpc;
-    QVector<graphicComputer> grpc;
-    QVector<server> srvpc;
-    QVector<baseComputer> vecpc;
-    officeComputer *newpc=new officeComputer;
-    vecpc.push_back(newpc);
-    baseComputer* mypc = new officeComputer;*/
-
-    updRooms();
-}
-
 
 void MainWindow::updRooms(){
     ui->roomCB->clear();

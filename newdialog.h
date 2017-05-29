@@ -27,8 +27,6 @@ public:
 
 private slots:
 
-    void on_typeBox_currentIndexChanged(int index);
-
     void on_buttonBox_accepted();
 
     void on_typeCB_currentIndexChanged(int index);

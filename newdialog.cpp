@@ -26,8 +26,7 @@ void NewDialog::upd_room(){
     }
 }
 
-void NewDialog::DisableAll() {
-    ui->lineEditId->clear();
+void NewDialog::DisableAll() {   
     ui->lineEditCpu->clear();
     ui->lineEditRam->clear();
     ui->lineEditDisplay->clear();
@@ -47,18 +46,11 @@ void NewDialog::DisableAll() {
     ui->lineEditGpu->setEnabled(false);
 }
 
-void NewDialog::on_typeBox_currentIndexChanged(int index)
-{
-
-
-}
-
 void NewDialog::on_buttonBox_accepted()
 {
-    int id, cpu, ram;
+    int  cpu, ram;
     QString display, printer, projector, ups, gpu;
 
-    id=ui->lineEditId->text().toInt();
     cpu=ui->lineEditCpu->text().toInt();
     ram=ui->lineEditRam->text().toInt();
     display=ui->lineEditDisplay->text();
@@ -70,23 +62,23 @@ void NewDialog::on_buttonBox_accepted()
     switch (ui->typeCB->currentIndex()) {
 
     case 0:{
-        ptr = new officeComputer(id,cpu,ram,display,printer);
+        ptr = new officeComputer(cpu,ram,display,printer);
         break;
     }
     case 1:{
-        ptr = new lectureComputer(id,cpu,ram,display,projector);
+        ptr = new lectureComputer(cpu,ram,display,projector);
         break;
     }
     case 2:{
-        ptr = new programmingComputer(id,cpu,ram,display);
+        ptr = new programmingComputer(cpu,ram,display);
         break;
     }
     case 3:{
-        ptr = new graphicComputer(id,cpu,ram,display,gpu);
+        ptr = new graphicComputer(cpu,ram,display,gpu);
         break;
     }
     case 4:{
-        ptr = new server(id,cpu,ram,ups);
+        ptr = new server(cpu,ram,ups);
         break;
     }
     default:
