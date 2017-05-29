@@ -23,22 +23,14 @@ void MainWindow::updRooms(){
     for(unsigned i=0; i<data.room.size(); i++){
         ui->roomCB->addItem(data.room.at(i).room);
     }
-
+    if(ui->roomCB->currentIndex()>-1){
+        ui->delRoomBtn->setEnabled(true);
+        ui->addItemBtn->setEnabled(true);
+    }else{
+        ui->table->setRowCount(0);
+        ui->delRoomBtn->setEnabled(false);
+        ui->addItemBtn->setEnabled(false);
 }
-
-void MainWindow::on_menuNew_triggered()
-{
-    Data *d_ptr=&data;
-    Factory *f_ptr=&factory;
-    NewDialog* objNewDialog = new NewDialog(this, d_ptr, f_ptr);
-    if(objNewDialog->exec()==QDialog::Accepted){
-        emit ui->roomCB->activated(ui->roomCB->currentIndex());
-    }
-}
-
-void MainWindow::on_menuExit_triggered()
-{
-    QCoreApplication::exit();
 }
 
 void MainWindow::on_newRoomLE_textEdited()
@@ -59,8 +51,13 @@ void MainWindow::on_addRoomBtn_clicked()
 
 void MainWindow::on_roomCB_activated(int index)
 {
-    // int index = ui->roomCB->currentIndex();
-    // qDebug()<<data.room[index].content.size();
+
+
+    if(ui->roomCB->currentIndex()>-1)
+        ui->addItemBtn->setEnabled(true);
+    else ui->addItemBtn->setEnabled(false);
+
+
     if(ui->roomCB->currentIndex()!=-1){
         ui->table->setRowCount(0);
         int size = data.room[index].content.size();
@@ -91,21 +88,77 @@ void MainWindow::on_roomCB_activated(int index)
             QTableWidgetItem *i_gpu = new QTableWidgetItem();
             i_gpu->setText(data.room[index].content[i]->get_gpu());
             ui->table->setItem(i,7, i_gpu);
+
+
         }
     }else
         ui->table->setRowCount(0);
+
+    if(ui->table->rowCount()>0)
+        ui->delItemBtn->setEnabled(true);
+    else
+        ui->delItemBtn->setEnabled(false);
 }
 
 void MainWindow::on_delRoomBtn_clicked()
 {
     data.room.erase(data.room.begin()+ui->roomCB->currentIndex());
     updRooms();
+}
+
+void MainWindow::on_delItemBtn_clicked()
+{
+    int i = ui->roomCB->currentIndex();
+    data.room[i].content.erase(data.room[i].content.begin()+ui->table->currentRow());
     emit ui->roomCB->activated(ui->roomCB->currentIndex());
 }
 
-void MainWindow::on_updTableBtn_clicked()
+void MainWindow::on_queryBtn_clicked()
 {
-    //qDebug()<<data.room[0].content[0]->get_display();
+    ui->resultList->clear();
+
+    if(ui->radioButton->isChecked()){
+        for(unsigned i =0; i<data.room.size(); i++){
+            for(unsigned j=0; j<data.room[i].content.size(); j++){
+                if(data.room[i].content[j]->cpu<ui->cpuQueryLE->text().toInt()){
+                    QListWidgetItem *tmp_item = new QListWidgetItem;
+                    tmp_item->setText(QString::number(data.room[i].content[j]->id));
+                    ui->resultList->addItem(tmp_item);
+                }
+            }
+        }
+
+    }else if(ui->radioButton_2->isChecked()){
+        for(unsigned i =0; i<data.room.size(); i++){
+            for(unsigned j=0; j<data.room[i].content.size(); j++){
+                if(data.room[i].content[j]->get_projector()==ui->prjQueryLE->text()){
+                    QListWidgetItem *tmp_item = new QListWidgetItem;
+                    tmp_item->setText(QString::number(data.room[i].content[j]->id));
+                    ui->resultList->addItem(tmp_item);
+                }
+            }
+        }
+    } else if(ui->radioButton_3->isChecked()){
+        for(unsigned i =0; i<data.room.size(); i++){
+            for(unsigned j=0; j<data.room[i].content.size(); j++){
+                if(data.room[i].content[j]->ram>ui->ramQueryLE->text().toInt()){
+                    QListWidgetItem *tmp_item = new QListWidgetItem;
+                    tmp_item->setText(QString::number(data.room[i].content[j]->id));
+                    ui->resultList->addItem(tmp_item);
+                }
+            }
+        }
+    }
 
 
+}
+
+void MainWindow::on_addItemBtn_clicked()
+{
+    Data *d_ptr=&data;
+    Factory *f_ptr=&factory;
+    NewDialog* objNewDialog = new NewDialog(this, d_ptr, f_ptr);
+    if(objNewDialog->exec()==QDialog::Accepted){
+        emit ui->roomCB->activated(ui->roomCB->currentIndex());
+    }
 }

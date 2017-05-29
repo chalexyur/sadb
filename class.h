@@ -2,6 +2,7 @@
 #define CLASS_H
 
 #include <QString>
+#include <QTime>
 
 class baseComputer
 {

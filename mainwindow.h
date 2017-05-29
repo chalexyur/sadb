@@ -24,9 +24,6 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_menuNew_triggered();
-
-    void on_menuExit_triggered();
 
     void on_newRoomLE_textEdited();
 
@@ -36,7 +33,11 @@ private slots:
 
     void on_delRoomBtn_clicked();
 
-    void on_updTableBtn_clicked();
+    void on_delItemBtn_clicked();
+
+    void on_queryBtn_clicked();
+
+    void on_addItemBtn_clicked();
 
 private:
     Ui::MainWindow *ui;

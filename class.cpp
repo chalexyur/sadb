@@ -2,15 +2,20 @@
 #include <QDebug>
 #include <mainwindow.h>
 
+
 baseComputer::baseComputer(int cpu, int ram){
-    this->id =0;
+    QString str = QString::number(QTime::currentTime().msecsSinceStartOfDay());
+    str.append("0");
+    this->id = str.toInt();
     this->cpu=cpu;
     this->ram =ram;
 }
 
 officeComputer::officeComputer(int cpu,int ram,QString display,QString printer)
     :baseComputer(cpu, ram){
-    this->id =1;
+    QString str = QString::number(QTime::currentTime().msecsSinceStartOfDay());
+    str.append("1");
+    this->id = str.toInt();
     this->cpu=cpu;
     this->ram =ram;
     this->display=display;
@@ -27,7 +32,9 @@ QString officeComputer::get_printer(){
 
 lectureComputer::lectureComputer(int cpu, int ram, QString display, QString projector)
     :baseComputer(cpu, ram){
-    this->id =2;
+    QString str = QString::number(QTime::currentTime().msecsSinceStartOfDay());
+    str.append("2");
+    this->id = str.toInt();
     this->cpu=cpu;
     this->ram =ram;
     this->display=display;
@@ -44,7 +51,9 @@ QString lectureComputer::get_projector(){
 
 programmingComputer::programmingComputer(int cpu,int ram,QString display)
     :baseComputer(cpu, ram){
-    this->id =3;
+    QString str = QString::number(QTime::currentTime().msecsSinceStartOfDay());
+    str.append("3");
+    this->id = str.toInt();
     this->cpu=cpu;
     this->ram =ram;
     this->display=display;
@@ -56,7 +65,9 @@ QString programmingComputer::get_display(){
 
 graphicComputer::graphicComputer(int cpu,int ram,QString display,QString gpu)
     :baseComputer(cpu, ram){
-    this->id =4;
+    QString str = QString::number(QTime::currentTime().msecsSinceStartOfDay());
+    str.append("4");
+    this->id = str.toInt();
     this->cpu=cpu;
     this->ram =ram;
     this->display=display;
@@ -73,7 +84,9 @@ QString graphicComputer::get_gpu(){
 
 server::server(int cpu,int ram,QString ups)
     :baseComputer(cpu, ram){
-    this->id =5;
+    QString str = QString::number(QTime::currentTime().msecsSinceStartOfDay());
+    str.append("5");
+    this->id = str.toInt();
     this->cpu=cpu;
     this->ram =ram;
     this->ups=ups;
