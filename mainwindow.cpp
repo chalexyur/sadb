@@ -46,9 +46,9 @@ void MainWindow::on_menuNew_triggered()
 {
     Data *d_ptr=&data;
     Factory *f_ptr=&factory;
-    NewDialog* objNewDialog = new NewDialog(this, d_ptr, f_ptr);    
+    NewDialog* objNewDialog = new NewDialog(this, d_ptr, f_ptr);
     if(objNewDialog->exec()==QDialog::Accepted){
-       emit ui->roomCB->activated(ui->roomCB->currentIndex());
+        emit ui->roomCB->activated(ui->roomCB->currentIndex());
     }
 }
 
@@ -75,38 +75,44 @@ void MainWindow::on_addRoomBtn_clicked()
 
 void MainWindow::on_roomCB_activated(int index)
 {
-   // int index = ui->roomCB->currentIndex();
-   // qDebug()<<data.room[index].content.size();
-    ui->table->setRowCount(0);
-    int size = data.room[index].content.size();
-    ui->table->setRowCount(size);
-    for(int i = 0; i<size; i++){
-        QTableWidgetItem *i_id = new QTableWidgetItem();
-        i_id->setText(QString::number(data.room[index].content[i]->id));
-        ui->table->setItem(i,0, i_id);
-        QTableWidgetItem *i_cpu = new QTableWidgetItem();
-        i_cpu->setText(QString::number(data.room[index].content[i]->cpu));
-        ui->table->setItem(i,1, i_cpu);
-        QTableWidgetItem *i_ram = new QTableWidgetItem();
-        i_ram->setText(QString::number(data.room[index].content[i]->ram));
-        ui->table->setItem(i,2, i_ram);
+    // int index = ui->roomCB->currentIndex();
+    // qDebug()<<data.room[index].content.size();
+    if(ui->roomCB->currentIndex()!=-1){
+        ui->table->setRowCount(0);
+        int size = data.room[index].content.size();
+        ui->table->setRowCount(size);
+        for(int i = 0; i<size; i++){
+            QTableWidgetItem *i_id = new QTableWidgetItem();
+            i_id->setText(QString::number(data.room[index].content[i]->id));
+            ui->table->setItem(i,0, i_id);
+            QTableWidgetItem *i_cpu = new QTableWidgetItem();
+            i_cpu->setText(QString::number(data.room[index].content[i]->cpu));
+            ui->table->setItem(i,1, i_cpu);
+            QTableWidgetItem *i_ram = new QTableWidgetItem();
+            i_ram->setText(QString::number(data.room[index].content[i]->ram));
+            ui->table->setItem(i,2, i_ram);
 
-        QTableWidgetItem *i_display = new QTableWidgetItem();
+            QTableWidgetItem *i_display = new QTableWidgetItem();
+            i_display->setText(data.room[index].content[i]->get_display());
+            ui->table->setItem(i,3, i_display);
+            QTableWidgetItem *i_printer = new QTableWidgetItem();
+            i_printer->setText(data.room[index].content[i]->get_printer());
+            ui->table->setItem(i,4, i_printer);
+            QTableWidgetItem *i_ups = new QTableWidgetItem();
+            i_ups->setText(data.room[index].content[i]->get_ups());
+            ui->table->setItem(i,5, i_ups);
+
+
+
+            /*  QTableWidgetItem *i_display = new QTableWidgetItem();
         baseComputer* c = data.room[index].content[i];
         officeComputer* ap = dynamic_cast<officeComputer*>(c);
         i_display->setText(ap->display);
         ui->table->setItem(i,3, i_display);
 
-        /*QTableWidgetItem *i_cpu = new QTableWidgetItem();
-    i_cpu->setText(QString::number(data.agregators[x].content[0]->cpu));
-    ui->table->setItem(x,1, i_cpu);
-    QTableWidgetItem *i_cpu = new QTableWidgetItem();
-    i_cpu->setText(QString::number(data.agregators[x].content[0]->cpu));
-    ui->table->setItem(x,1, i_cpu);
-    QTableWidgetItem *i_cpu = new QTableWidgetItem();
-    i_cpu->setText(QString::number(data.agregators[x].content[0]->cpu));
-    ui->table->setItem(x,1, i_cpu);*/
-    }
+     */}
+    }else
+        ui->table->setRowCount(0);
 
 
 }
@@ -120,6 +126,7 @@ void MainWindow::on_delRoomBtn_clicked()
 
 void MainWindow::on_updTableBtn_clicked()
 {
+    //qDebug()<<data.room[0].content[0]->get_display();
 
 
 }

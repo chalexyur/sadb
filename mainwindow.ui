@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>746</width>
-    <height>277</height>
+    <width>837</width>
+    <height>279</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -26,8 +26,8 @@
      <rect>
       <x>9</x>
       <y>69</y>
-      <width>728</width>
-      <height>146</height>
+      <width>821</width>
+      <height>151</height>
      </rect>
     </property>
     <property name="sortingEnabled">
@@ -56,6 +56,11 @@
     <column>
      <property name="text">
       <string>printer</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>projector</string>
      </property>
     </column>
     <column>
@@ -126,13 +131,7 @@
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QComboBox" name="roomCB">
-       <item>
-        <property name="text">
-         <string>0</string>
-        </property>
-       </item>
-      </widget>
+      <widget class="QComboBox" name="roomCB"/>
      </item>
      <item row="1" column="2">
       <widget class="QPushButton" name="delRoomBtn">
@@ -149,7 +148,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>746</width>
+     <width>837</width>
      <height>21</height>
     </rect>
    </property>

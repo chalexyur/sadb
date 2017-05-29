@@ -73,11 +73,11 @@ void NewDialog::on_buttonBox_accepted()
         f_ptr->createObject(ptr, d_ptr->room.at(ui->roomCB->currentIndex()));
         break;
     }
-    case 1:{
+    /*case 1:{
         baseComputer *ptr = new lectureComputer(id,cpu,ram,display,projector);
         f_ptr->createObject(ptr, d_ptr->room.back());
         break;
-    }
+    }*/
     default:
         break;
     }

@@ -9,9 +9,9 @@ Rooms::Rooms(QString room)
 
 void Rooms::print()
 {
-    qDebug() << "Agregator param is " << this->room;
+    /*qDebug() << "Agregator param is " << this->room;
     for (unsigned i = 0; i < this->content.size(); ++i)
     {
         this->content.at(i)->print();
-    }
+    }*/
 }

@@ -6,9 +6,6 @@ baseComputer::baseComputer(int id, int cpu, int ram){
     this->id =id;
     this->cpu=cpu;
     this->ram =ram;
-}
-
-void baseComputer::print(){
     qDebug() <<"bspc:"<< id<<cpu<<ram;
 }
 
@@ -22,10 +19,12 @@ officeComputer::officeComputer(int id,int cpu,int ram,QString display,QString pr
     qDebug()<< "ofpc:" << id<<cpu<<ram<<display<<printer;
 }
 
-void officeComputer::print(){    
-    qDebug()<< "ofpc:" << id<<cpu<<ram<<display<<printer;
+QString officeComputer::get_display(){
+    return this->display;
+}
 
-    //baseComputer::print();
+QString officeComputer::get_printer(){
+    return this->printer;
 }
 
 lectureComputer::lectureComputer(int id, int cpu, int ram, QString display, QString projector)
@@ -36,7 +35,14 @@ lectureComputer::lectureComputer(int id, int cpu, int ram, QString display, QStr
     this->display=display;
     this->projector=projector;
     qDebug()<< "lecpc:" << id<<cpu<<ram<<display<<projector;
+}
 
+QString lectureComputer::get_display(){
+    return this->display;
+}
+
+QString lectureComputer::get_projector(){
+    return this->projector;
 }
 
 programmingComputer::programmingComputer(int id,int cpu,int ram,QString display)
@@ -47,6 +53,11 @@ programmingComputer::programmingComputer(int id,int cpu,int ram,QString display)
     this->display=display;
     qDebug()<< "progpc:" << id<<cpu<<ram<<display;
 }
+
+QString programmingComputer::get_display(){
+    return this->display;
+}
+
 graphicComputer::graphicComputer(int id,int cpu,int ram,QString display,QString gpu)
     :baseComputer(id, cpu, ram){
     this->id =id;
@@ -56,6 +67,15 @@ graphicComputer::graphicComputer(int id,int cpu,int ram,QString display,QString 
     this->gpu=gpu;
     qDebug()<< "grpc:" << id<<cpu<<ram<<display<<gpu;
 }
+
+QString graphicComputer::get_display(){
+    return this->display;
+}
+
+QString graphicComputer::get_gpu(){
+    return this->gpu;
+}
+
 server::server(int id,int cpu,int ram,QString ups)
     :baseComputer(id, cpu, ram){
     this->id =id;
@@ -63,4 +83,8 @@ server::server(int id,int cpu,int ram,QString ups)
     this->ram =ram;
     this->ups=ups;
     qDebug()<< "server:" << id<<cpu<<ram<<ups;
+}
+
+QString server::get_ups(){
+    return this->ups;
 }
