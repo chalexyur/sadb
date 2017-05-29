@@ -68,19 +68,31 @@ void NewDialog::on_buttonBox_accepted()
     gpu=ui->lineEditGpu->text();
 
     switch (ui->typeCB->currentIndex()) {
+
     case 0:{
-        baseComputer *ptr = new officeComputer(id,cpu,ram,display,printer);
-        f_ptr->createObject(ptr, d_ptr->room.at(ui->roomCB->currentIndex()));
+        ptr = new officeComputer(id,cpu,ram,display,printer);
         break;
     }
-    /*case 1:{
-        baseComputer *ptr = new lectureComputer(id,cpu,ram,display,projector);
-        f_ptr->createObject(ptr, d_ptr->room.back());
+    case 1:{
+        ptr = new lectureComputer(id,cpu,ram,display,projector);
         break;
-    }*/
+    }
+    case 2:{
+        ptr = new programmingComputer(id,cpu,ram,display);
+        break;
+    }
+    case 3:{
+        ptr = new graphicComputer(id,cpu,ram,display,gpu);
+        break;
+    }
+    case 4:{
+        ptr = new server(id,cpu,ram,ups);
+        break;
+    }
     default:
         break;
     }
+    f_ptr->createObject(ptr, d_ptr->room.at(ui->roomCB->currentIndex()));
 }
 
 void NewDialog::on_typeCB_currentIndexChanged(int index)

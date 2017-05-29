@@ -98,23 +98,18 @@ void MainWindow::on_roomCB_activated(int index)
             QTableWidgetItem *i_printer = new QTableWidgetItem();
             i_printer->setText(data.room[index].content[i]->get_printer());
             ui->table->setItem(i,4, i_printer);
+            QTableWidgetItem *i_projector = new QTableWidgetItem();
+            i_projector->setText(data.room[index].content[i]->get_projector());
+            ui->table->setItem(i,5, i_projector);
             QTableWidgetItem *i_ups = new QTableWidgetItem();
             i_ups->setText(data.room[index].content[i]->get_ups());
-            ui->table->setItem(i,5, i_ups);
-
-
-
-            /*  QTableWidgetItem *i_display = new QTableWidgetItem();
-        baseComputer* c = data.room[index].content[i];
-        officeComputer* ap = dynamic_cast<officeComputer*>(c);
-        i_display->setText(ap->display);
-        ui->table->setItem(i,3, i_display);
-
-     */}
+            ui->table->setItem(i,6, i_ups);
+            QTableWidgetItem *i_gpu = new QTableWidgetItem();
+            i_gpu->setText(data.room[index].content[i]->get_gpu());
+            ui->table->setItem(i,7, i_gpu);
+        }
     }else
         ui->table->setRowCount(0);
-
-
 }
 
 void MainWindow::on_delRoomBtn_clicked()

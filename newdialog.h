@@ -23,6 +23,7 @@ public:
     void upd_room();
     Data *d_ptr;
     Factory *f_ptr;
+    baseComputer *ptr;
 
 private slots:
 

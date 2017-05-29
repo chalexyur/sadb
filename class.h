@@ -25,9 +25,9 @@ public:
     officeComputer(int id,int cpu,int ram,QString display,QString printer);
     QString get_display();
     QString get_printer();
-    QString get_projector(){return " ";}
-    QString get_gpu(){return " ";}
-    QString get_ups(){return " ";}
+    QString get_projector(){return "";}
+    QString get_gpu(){return "";}
+    QString get_ups(){return "";}
 };
 
 class lectureComputer:public baseComputer{
@@ -36,7 +36,10 @@ public:
     QString projector;
     lectureComputer(int id,int cpu,int ram,QString display,QString projector);
     QString get_display();
+    QString get_printer(){return "";}
     QString get_projector();
+    QString get_gpu(){return "";}
+    QString get_ups(){return "";}
 };
 
 class programmingComputer:public baseComputer{
@@ -44,6 +47,10 @@ public:
     QString display;
     programmingComputer(int id,int cpu,int ram,QString display);
     QString get_display();
+    QString get_printer(){return "";}
+    QString get_projector(){return "";}
+    QString get_gpu(){return "";}
+    QString get_ups(){return "";}
 };
 
 class graphicComputer:public baseComputer{
@@ -52,13 +59,20 @@ public:
     QString gpu;
     graphicComputer(int id,int cpu,int ram,QString display,QString gpu);
     QString get_display();
+    QString get_printer(){return "";}
+    QString get_projector(){return "";}
     QString get_gpu();
+    QString get_ups(){return "";}
 };
 
 class server:public baseComputer{
 public:
     QString ups;
     server(int id,int cpu,int ram,QString ups);
+    QString get_display(){return "";}
+    QString get_printer(){return "";}
+    QString get_projector(){return "";}
+    QString get_gpu(){return "";}
     QString get_ups();
 };
 
