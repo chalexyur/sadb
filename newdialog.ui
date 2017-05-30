@@ -84,7 +84,7 @@
       <bool>true</bool>
      </property>
      <property name="text">
-      <string>Процессор:</string>
+      <string>Процессор, ГГц:</string>
      </property>
      <property name="buddy">
       <cstring>ui-&gt;lineEditCpu</cstring>
@@ -97,7 +97,7 @@
       <bool>true</bool>
      </property>
      <property name="inputMask">
-      <string/>
+      <string>99999</string>
      </property>
      <property name="text">
       <string/>
@@ -110,7 +110,7 @@
       <bool>true</bool>
      </property>
      <property name="text">
-      <string>Оперативная память:</string>
+      <string>Оперативная память, ГБ:</string>
      </property>
     </widget>
    </item>
@@ -120,7 +120,7 @@
       <bool>true</bool>
      </property>
      <property name="inputMask">
-      <string/>
+      <string>99999</string>
      </property>
      <property name="text">
       <string/>
@@ -133,7 +133,7 @@
       <bool>true</bool>
      </property>
      <property name="text">
-      <string>Монитор:</string>
+      <string>Модель монитора:</string>
      </property>
     </widget>
    </item>
@@ -153,7 +153,7 @@
       <bool>true</bool>
      </property>
      <property name="text">
-      <string>Принтер:</string>
+      <string>Модель принтера:</string>
      </property>
     </widget>
    </item>
@@ -173,7 +173,7 @@
       <bool>false</bool>
      </property>
      <property name="text">
-      <string>Проектор:</string>
+      <string>Модель проектора:</string>
      </property>
     </widget>
    </item>
@@ -190,7 +190,7 @@
       <bool>false</bool>
      </property>
      <property name="text">
-      <string>ИБП:</string>
+      <string>Модель ИБП:</string>
      </property>
     </widget>
    </item>
@@ -207,7 +207,7 @@
       <bool>false</bool>
      </property>
      <property name="text">
-      <string>Видеокарта:</string>
+      <string>Модель видеокарты:</string>
      </property>
     </widget>
    </item>

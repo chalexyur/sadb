@@ -30,7 +30,8 @@ void MainWindow::updRooms(){
         ui->table->setRowCount(0);
         ui->delRoomBtn->setEnabled(false);
         ui->addItemBtn->setEnabled(false);
-}
+    }
+    emit ui->roomCB->activated(ui->roomCB->currentIndex());
 }
 
 void MainWindow::on_newRoomLE_textEdited()
@@ -94,10 +95,13 @@ void MainWindow::on_roomCB_activated(int index)
     }else
         ui->table->setRowCount(0);
 
-    if(ui->table->rowCount()>0)
+    if(ui->table->rowCount()>0){
         ui->delItemBtn->setEnabled(true);
-    else
+        ui->groupBox_2->setEnabled(true);
+    } else{
         ui->delItemBtn->setEnabled(false);
+        ui->groupBox_2->setEnabled(false);
+    }
 }
 
 void MainWindow::on_delRoomBtn_clicked()
@@ -119,41 +123,22 @@ void MainWindow::on_queryBtn_clicked()
     ui->cpuQueryLE->clear();
     ui->ramQueryLE->clear();
     ui->prjQueryLE->clear();
-
-    if(ui->radioButton->isChecked()){
-        for(unsigned i =0; i<data.room.size(); i++){
-            for(unsigned j=0; j<data.room[i].pc.size(); j++){
-                if(data.room[i].pc[j]->cpu<ui->cpuQueryLE->text().toInt()){
-                    QListWidgetItem *tmp_item = new QListWidgetItem;
-                    tmp_item->setText(QString::number(data.room[i].pc[j]->id));
-                    ui->resultList->addItem(tmp_item);
-                }
+    QListWidgetItem *tmp_item = new QListWidgetItem;;
+    for(unsigned i =0; i<data.room.size(); i++){
+        for(unsigned j=0; j<data.room[i].pc.size(); j++){
+            if(data.room[i].pc[j]->cpu < ui->cpuQueryLE->text().toInt()){
+                tmp_item->setText(QString::number(data.room[i].pc[j]->id));
+                ui->resultList->addItem(tmp_item);
+            }else if(data.room[i].pc[j]->get_projector() == ui->prjQueryLE->text()){
+                tmp_item->setText(QString::number(data.room[i].pc[j]->id));
+                ui->resultList->addItem(tmp_item);
             }
-        }
-
-    }else if(ui->radioButton_2->isChecked()){
-        for(unsigned i =0; i<data.room.size(); i++){
-            for(unsigned j=0; j<data.room[i].pc.size(); j++){
-                if(data.room[i].pc[j]->get_projector()==ui->prjQueryLE->text()){
-                    QListWidgetItem *tmp_item = new QListWidgetItem;
-                    tmp_item->setText(QString::number(data.room[i].pc[j]->id));
-                    ui->resultList->addItem(tmp_item);
-                }
-            }
-        }
-    } else if(ui->radioButton_3->isChecked()){
-        for(unsigned i =0; i<data.room.size(); i++){
-            for(unsigned j=0; j<data.room[i].pc.size(); j++){
-                if(data.room[i].pc[j]->ram>ui->ramQueryLE->text().toInt()){
-                    QListWidgetItem *tmp_item = new QListWidgetItem;
-                    tmp_item->setText(QString::number(data.room[i].pc[j]->id));
-                    ui->resultList->addItem(tmp_item);
-                }
+            else if(data.room[i].pc[j]->ram > ui->ramQueryLE->text().toInt()){
+                tmp_item->setText(QString::number(data.room[i].pc[j]->id));
+                ui->resultList->addItem(tmp_item);
             }
         }
     }
-
-
 }
 
 void MainWindow::on_addItemBtn_clicked()
@@ -166,33 +151,12 @@ void MainWindow::on_addItemBtn_clicked()
     }
 }
 
-void MainWindow::on_radioButton_clicked()
-{
-    ui->cpuQueryLE->setEnabled(true);
-    ui->ramQueryLE->setEnabled(false);
-    ui->prjQueryLE->setEnabled(false);
-}
-
-void MainWindow::on_radioButton_2_clicked()
-{
-    ui->cpuQueryLE->setEnabled(false);
-    ui->ramQueryLE->setEnabled(true);
-    ui->prjQueryLE->setEnabled(false);
-}
-
-void MainWindow::on_radioButton_3_clicked()
-{
-    ui->cpuQueryLE->setEnabled(false);
-    ui->ramQueryLE->setEnabled(false);
-    ui->prjQueryLE->setEnabled(true);
-}
-
 void MainWindow::on_cpuQueryLE_textChanged(const QString &arg1)
 {
     if(ui->cpuQueryLE->text().isEmpty())
         ui->queryBtn->setEnabled(false);
     else
-        ui->queryBtn->setEnabled(false);
+        ui->queryBtn->setEnabled(true);
 }
 
 void MainWindow::on_prjQueryLE_textChanged(const QString &arg1)
@@ -200,7 +164,7 @@ void MainWindow::on_prjQueryLE_textChanged(const QString &arg1)
     if(ui->prjQueryLE->text().isEmpty())
         ui->queryBtn->setEnabled(false);
     else
-        ui->queryBtn->setEnabled(false);
+        ui->queryBtn->setEnabled(true);
 }
 
 void MainWindow::on_ramQueryLE_textChanged(const QString &arg1)
@@ -208,5 +172,29 @@ void MainWindow::on_ramQueryLE_textChanged(const QString &arg1)
     if(ui->ramQueryLE->text().isEmpty())
         ui->queryBtn->setEnabled(false);
     else
-        ui->queryBtn->setEnabled(false);
+        ui->queryBtn->setEnabled(true);
+}
+
+void MainWindow::on_radioButton_toggled(bool checked)
+{
+    if(checked==1)
+        ui->cpuQueryLE->setEnabled(true);
+    else
+        ui->cpuQueryLE->setEnabled(false);
+}
+
+void MainWindow::on_radioButton_2_toggled(bool checked)
+{
+    if(checked==1)
+        ui->prjQueryLE->setEnabled(true);
+    else
+        ui->prjQueryLE->setEnabled(false);
+}
+
+void MainWindow::on_radioButton_3_toggled(bool checked)
+{
+    if(checked==1)
+        ui->ramQueryLE->setEnabled(true);
+    else
+        ui->ramQueryLE->setEnabled(false);
 }

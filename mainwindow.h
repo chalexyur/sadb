@@ -39,17 +39,17 @@ private slots:
 
     void on_addItemBtn_clicked();
 
-    void on_radioButton_clicked();
-
-    void on_radioButton_2_clicked();
-
-    void on_radioButton_3_clicked();
-
     void on_cpuQueryLE_textChanged(const QString &arg1);
 
     void on_prjQueryLE_textChanged(const QString &arg1);
 
     void on_ramQueryLE_textChanged(const QString &arg1);
+
+    void on_radioButton_toggled(bool checked);
+
+    void on_radioButton_2_toggled(bool checked);
+
+    void on_radioButton_3_toggled(bool checked);
 
 private:
     Ui::MainWindow *ui;
