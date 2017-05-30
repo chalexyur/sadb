@@ -8,7 +8,7 @@ class Rooms
 
 public:
     QString room;
-    std::vector<baseComputer*> content;
+    std::vector<baseComputer*> pc;
     Rooms(QString room);
 
     void print();

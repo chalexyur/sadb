@@ -224,7 +224,11 @@
           </widget>
          </item>
          <item row="1" column="1">
-          <widget class="QLineEdit" name="cpuQueryLE"/>
+          <widget class="QLineEdit" name="cpuQueryLE">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+          </widget>
          </item>
          <item row="1" column="2" rowspan="3">
           <widget class="QPushButton" name="queryBtn">
@@ -247,7 +251,11 @@
           </widget>
          </item>
          <item row="2" column="1">
-          <widget class="QLineEdit" name="prjQueryLE"/>
+          <widget class="QLineEdit" name="prjQueryLE">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+          </widget>
          </item>
          <item row="3" column="0">
           <widget class="QRadioButton" name="radioButton_3">
@@ -257,7 +265,11 @@
           </widget>
          </item>
          <item row="3" column="1">
-          <widget class="QLineEdit" name="ramQueryLE"/>
+          <widget class="QLineEdit" name="ramQueryLE">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>
@@ -308,24 +320,6 @@
     </item>
    </layout>
   </widget>
-  <action name="menuNew">
-   <property name="icon">
-    <iconset resource="recources.qrc">
-     <normaloff>:/new/prefix1/application_form_add.png</normaloff>:/new/prefix1/application_form_add.png</iconset>
-   </property>
-   <property name="text">
-    <string>Новый...</string>
-   </property>
-  </action>
-  <action name="menuExit">
-   <property name="icon">
-    <iconset resource="recources.qrc">
-     <normaloff>:/new/prefix1/door_out.png</normaloff>:/new/prefix1/door_out.png</iconset>
-   </property>
-   <property name="text">
-    <string>Выход</string>
-   </property>
-  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>

@@ -49,7 +49,7 @@ void NewDialog::DisableAll() {
 void NewDialog::on_buttonBox_accepted()
 {
     int  cpu, ram;
-    QString display, printer, projector, ups, gpu;
+    QString display, printer, ups, gpu, projector;
 
     cpu=ui->lineEditCpu->text().toInt();
     ram=ui->lineEditRam->text().toInt();

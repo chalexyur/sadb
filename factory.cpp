@@ -7,7 +7,7 @@ Factory::Factory()
 
 void Factory::createObject(baseComputer* classPtr, Rooms &room)
 {
-    room.content.push_back(classPtr);
+    room.pc.push_back(classPtr);
 }
 
 void Factory::createObject(officeComputer* classPtr, Rooms &room)

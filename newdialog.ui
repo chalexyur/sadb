@@ -20,16 +20,6 @@
    <bool>true</bool>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="7" column="0">
-    <widget class="QLabel" name="label_8">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
-     <property name="text">
-      <string>ИБП:</string>
-     </property>
-    </widget>
-   </item>
    <item row="0" column="0">
     <widget class="QLabel" name="label_10">
      <property name="text">
@@ -191,6 +181,16 @@
     <widget class="QLineEdit" name="lineEditProjector">
      <property name="enabled">
       <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="0">
+    <widget class="QLabel" name="label_8">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="text">
+      <string>ИБП:</string>
      </property>
     </widget>
    </item>
