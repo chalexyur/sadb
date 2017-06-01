@@ -89,8 +89,6 @@ void MainWindow::on_roomCB_activated(int index)
             QTableWidgetItem *i_gpu = new QTableWidgetItem();
             i_gpu->setText(data.room[index].pc[i]->get_gpu());
             ui->table->setItem(i,7, i_gpu);
-
-
         }
     }else
         ui->table->setRowCount(0);
@@ -119,21 +117,24 @@ void MainWindow::on_delItemBtn_clicked()
 
 void MainWindow::on_queryBtn_clicked()
 {
+    ui->table->setEditTriggers(QAbstractItemView::NoEditTriggers);
     ui->resultList->clear();
     ui->cpuQueryLE->clear();
     ui->ramQueryLE->clear();
     ui->prjQueryLE->clear();
-    QListWidgetItem *tmp_item = new QListWidgetItem;;
     for(unsigned i =0; i<data.room.size(); i++){
         for(unsigned j=0; j<data.room[i].pc.size(); j++){
             if(data.room[i].pc[j]->cpu < ui->cpuQueryLE->text().toInt()){
+                QListWidgetItem *tmp_item = new QListWidgetItem;
                 tmp_item->setText(QString::number(data.room[i].pc[j]->id));
                 ui->resultList->addItem(tmp_item);
             }else if(data.room[i].pc[j]->get_projector() == ui->prjQueryLE->text()){
+                QListWidgetItem *tmp_item = new QListWidgetItem;
                 tmp_item->setText(QString::number(data.room[i].pc[j]->id));
                 ui->resultList->addItem(tmp_item);
             }
             else if(data.room[i].pc[j]->ram > ui->ramQueryLE->text().toInt()){
+                QListWidgetItem *tmp_item = new QListWidgetItem;
                 tmp_item->setText(QString::number(data.room[i].pc[j]->id));
                 ui->resultList->addItem(tmp_item);
             }

@@ -170,6 +170,16 @@
          <property name="text">
           <string>Добавить компьютер</string>
          </property>
+         <property name="icon">
+          <iconset resource="recources.qrc">
+           <normaloff>:/new/prefix1/application_form_add.png</normaloff>:/new/prefix1/application_form_add.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>24</width>
+           <height>24</height>
+          </size>
+         </property>
         </widget>
        </item>
        <item row="2" column="1">
@@ -179,6 +189,16 @@
          </property>
          <property name="text">
           <string>Удалить компьютер</string>
+         </property>
+         <property name="icon">
+          <iconset resource="recources.qrc">
+           <normaloff>:/new/prefix1/table_delete.png</normaloff>:/new/prefix1/table_delete.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>24</width>
+           <height>24</height>
+          </size>
          </property>
          <property name="checkable">
           <bool>false</bool>

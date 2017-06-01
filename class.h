@@ -2,11 +2,9 @@
 #define CLASS_H
 
 #include <QString>
-#include <QTime>
 
 class baseComputer
 {
-
 public:
     int id;
     int cpu;
@@ -23,7 +21,7 @@ class officeComputer:public baseComputer{
 public:    
     QString display;
     QString printer;
-    officeComputer(int cpu,int ram,QString display,QString printer);
+    officeComputer(int cpu, int ram, QString display, QString printer);
     QString get_display();
     QString get_printer();
     QString get_projector(){return "";}
@@ -35,7 +33,7 @@ class lectureComputer:public baseComputer{
 public:
     QString display;
     QString projector;
-    lectureComputer(int cpu,int ram,QString display,QString projector);
+    lectureComputer(int cpu, int ram, QString display, QString projector);
     QString get_display();
     QString get_printer(){return "";}
     QString get_projector();
@@ -46,7 +44,7 @@ public:
 class programmingComputer:public baseComputer{
 public:
     QString display;
-    programmingComputer(int cpu,int ram,QString display);
+    programmingComputer(int cpu,int ram, QString display);
     QString get_display();
     QString get_printer(){return "";}
     QString get_projector(){return "";}
@@ -58,7 +56,7 @@ class graphicComputer:public baseComputer{
 public:
     QString display;
     QString gpu;
-    graphicComputer(int cpu,int ram,QString display,QString gpu);
+    graphicComputer(int cpu, int ram, QString display, QString gpu);
     QString get_display();
     QString get_printer(){return "";}
     QString get_projector(){return "";}

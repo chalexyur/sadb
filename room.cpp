@@ -4,7 +4,6 @@
 Rooms::Rooms(QString room)
 {
     this->room = room;
-
 }
 
 void Rooms::print()

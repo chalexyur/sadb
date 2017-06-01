@@ -1,11 +1,10 @@
-#ifndef AGREGATOR_H
-#define AGREGATOR_H
+#ifndef ROOM_H
+#define ROOM_H
 #include "class.h"
 #include <vector>
 
 class Rooms
 {
-
 public:
     QString room;
     std::vector<baseComputer*> pc;
@@ -13,4 +12,4 @@ public:
 
     void print();
 };
-#endif // AGREGATOR_H
+#endif // ROOM_H

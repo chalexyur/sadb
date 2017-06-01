@@ -7,7 +7,6 @@ class Data
 {
 public:
     std::vector<Rooms> room;
-    void print();
 };
 
 #endif // DATA_H

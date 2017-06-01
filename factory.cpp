@@ -1,9 +1,6 @@
 #include "factory.h"
 
-Factory::Factory()
-{
-
-}
+Factory::Factory(){}
 
 void Factory::createObject(baseComputer* classPtr, Rooms &room)
 {
@@ -17,20 +14,20 @@ void Factory::createObject(officeComputer* classPtr, Rooms &room)
 
 void Factory::createObject(lectureComputer* classPtr, Rooms &room)
 {
-    createObject(dynamic_cast<lectureComputer*>(classPtr), room);
+    createObject(dynamic_cast<baseComputer*>(classPtr), room);
 }
 
 void Factory::createObject(programmingComputer* classPtr, Rooms &room)
 {
-    createObject(dynamic_cast<programmingComputer*>(classPtr), room);
+    createObject(dynamic_cast<baseComputer*>(classPtr), room);
 }
 
 void Factory::createObject(graphicComputer* classPtr, Rooms &room)
 {
-    createObject(dynamic_cast<graphicComputer*>(classPtr), room);
+    createObject(dynamic_cast<baseComputer*>(classPtr), room);
 }
 
 void Factory::createObject(server* classPtr, Rooms &room)
 {
-    createObject(dynamic_cast<server*>(classPtr), room);
+    createObject(dynamic_cast<baseComputer*>(classPtr), room);
 }

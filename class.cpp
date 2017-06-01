@@ -1,6 +1,7 @@
 #include "class.h"
 #include <QDebug>
 #include <mainwindow.h>
+#include <QTime>
 
 
 baseComputer::baseComputer(int cpu, int ram){

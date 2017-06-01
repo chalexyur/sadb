@@ -26,7 +26,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp\
         mainwindow.cpp \
     newdialog.cpp \
-    data.cpp \
     factory.cpp \
     class.cpp \
     room.cpp
