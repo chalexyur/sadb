@@ -124,7 +124,7 @@ void MainWindow::on_queryBtn_clicked()
     ui->prjQueryLE->clear();
     for(unsigned i =0; i<data.room.size(); i++){
         for(unsigned j=0; j<data.room[i].pc.size(); j++){
-            if(data.room[i].pc[j]->cpu < ui->cpuQueryLE->text().toInt()){
+            if(( QString s1 = data.room[i].pc[j]->cpu ) < (QString s2= ui->cpuQueryLE->text().toInt())){
                 QListWidgetItem *tmp_item = new QListWidgetItem;
                 tmp_item->setText(QString::number(data.room[i].pc[j]->id));
                 ui->resultList->addItem(tmp_item);
